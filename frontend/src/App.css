@@ -1,6 +1,56 @@
-.App {
-  text-align: center;
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
 }
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.header {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: yellow;
+  background: black;
+}
+
+.text-block {
+  text-align: center;
+  color: gray;
+  margin-top: 16px;
+}
+
+.submit-block {
+  text-align: center;
+  color: gray;
+  margin-top: 16px;
+}
+
+.file-upload {
+  display: flex; 
+  margin-top: 16px;
+  flex-direction: column; 
+  max-width: 400px; 
+  margin: auto;
+
+}
+
+.submitButton {
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 8px;
+  border: 0;
+  border-radius: 5px;
+}
+
+
+/* ===== BELOW CSS CURRENTLY UNUSED ===== */
 
 form {
   display: flex; 

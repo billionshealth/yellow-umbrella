@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import axios from "axios"
+import './App.css'
 
 export default function App() {
   const [file, setFile] = useState()
@@ -17,23 +18,33 @@ export default function App() {
 }
 
   return (
-    <div className="App">
-      <form onSubmit={submit}>
-        Upload file here (only accepts .txt files): <input
-          filename={file} 
-          onChange={e => setFile(e.target.files[0])} 
-          type="file" 
-          accept=".txt"
-        ></input>
-        <br></br>
-        Your name (to later be replaced with wallet address): 
-        <input
-          onChange={e => setDescription(e.target.value)} 
-          type="text"
-        ></input>
-        <br></br>
-        <button type="submit">Submit</button>
-      </form>
+      <div className="mainContainer">
+        <div className="dataContainer">
+            <div className="header">
+                Yellow Umbrella ☂ 
+            </div>
+
+            <div className="text-block">
+                Upload your DNA sequence to get a unique bio NFT
+            </div>
+
+            <div className="text-block">
+                Select a .txt or .vcf file:
+            </div>
+
+            <div className="submit-block">
+                <form onSubmit={submit}>
+                    <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
+                    type="file" accept=".txt"></input> 
+                    {/* TODO: modify to accept other file types, such as VCF */}
+
+                    {/* Your name: 
+                    <input onChange={e => setDescription(e.target.value)} type="text"></input> */}
+                    <button className="submitButton" type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
+
     )
   }
