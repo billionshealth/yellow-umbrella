@@ -6,7 +6,7 @@ import './App.css'
 
 export default function App() {
   const [file, setFile] = useState()
-  const [description, setDescription] = useState("")
+//   const [description, setDescription] = useState("")
   const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -59,8 +59,7 @@ export default function App() {
         event.preventDefault()
 
         const formData = new FormData()
-        formData.append("file", file)
-        formData.append("description", description)
+        formData.append("file", file, `${currentAccount}.txt`)
 
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
