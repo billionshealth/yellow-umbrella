@@ -6,7 +6,6 @@ import './App.css'
 
 export default function App() {
   const [file, setFile] = useState()
-//   const [description, setDescription] = useState("")
   const [currentAccount, setCurrentAccount] = useState("");
 
     const checkIfWalletIsConnected = async () => {
@@ -97,8 +96,6 @@ export default function App() {
                     type="file" accept=".txt"></input> 
                     {/* TODO: modify to accept other file types, such as VCF */}
 
-                    {/* Your name: 
-                    <input onChange={e => setDescription(e.target.value)} type="text"></input> */}
                     <button className="submitButton" type="submit">Submit</button>
                 </form>
             </div>
