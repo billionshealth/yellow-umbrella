@@ -9,7 +9,7 @@ It is the first of a series of games that Billions Health is building to encoura
 
 - [About](#about)
 - [Install](#install)
-- [Gameplay](#gameplay)
+- [Frontend](#frontend)
 - [Next Steps](#next-steps)
 
 
@@ -21,8 +21,6 @@ The game play dynamics of Yellow Umbrella are described in more detail in [this 
 
 The current backend logic is that (1) a player's genetic data file is renamed based on their wallet address, (2) the file is uploaded to an encrypted Amazon S3 bucket, (3) this file upload triggers an AWS Lambda function to calculate a genetic similarity score, (4) this is fed back to the backend, which then initiates the minting of an NFT based on the characteristics.
 
-The current working template for the front-facing web app is the following:
-![](Screenshot.png)
 
 ## Install
 
@@ -57,6 +55,12 @@ cd gene-similarity-sam
 sam build
 sam deploy
 ```
+
+
+## Frontend
+
+The current working template for the front-facing web app is the following:
+![](Screenshot.png)
 
 
 ## Next steps
