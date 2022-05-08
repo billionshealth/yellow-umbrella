@@ -1,12 +1,56 @@
 import { useEffect, useState } from 'react'
-import { ethers } from 'ethers'
 import axios from "axios"
 import './App.css'
+import { ethers } from 'ethers'
+import Web3Modal from "web3modal"
+import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+
+const providerOptions = {
+    coinbasewallet: {
+        package: CoinbaseWalletSDK, // Required
+        options: {
+          appName: "My Awesome App", // Required
+          infuraId: process.env.REACT_APP_INFURA_ID,
+          rpc: "", // Optional if `infuraId` is provided; otherwise it's required
+          chainId: 1, // Optional. It defaults to 1 if not provided
+          darkMode: false // Optional. Use dark theme, defaults to false
+        }
+      },
+
+  };
 
 
 export default function App() {
-  const [file, setFile] = useState()
-  const [currentAccount, setCurrentAccount] = useState("");
+    const [file, setFile] = useState()
+    const [currentAccount, setCurrentAccount] = useState("");
+    const [provider, setProvider] = useState();
+
+    const web3Modal = new Web3Modal({
+        network: "mainnet", 
+        cacheProvider: false, 
+        providerOptions
+    });
+
+    function reset() {
+        console.log("reset");
+        setCurrentAccount("");
+        web3Modal.clearCachedProvider();
+    }
+
+    // TODO: add subscribeProvider function as per example: https://github.com/Web3Modal/web3modal/blob/master/example/src/App.tsx
+    // and as explained here: https://github.com/Web3Modal/web3modal#provider-events
+
+    async function connect() {
+        const web3Provider = await web3Modal.connect();
+        
+        web3Provider.on("disconnect", reset);
+
+        const accounts = await web3Provider.request({ method: 'eth_requestAccounts' });
+        setCurrentAccount(accounts[0]);
+
+        const provider = new ethers.providers.Web3Provider(web3Provider);
+        setProvider(provider);
+    }
 
     const checkIfWalletIsConnected = async () => {
         try {
@@ -29,24 +73,6 @@ export default function App() {
             }
             } catch (error) {
             console.log(error);
-            }
-        }
-
-    const connectWallet = async () => {
-        try {
-            const { ethereum } = window;
-    
-            if (!ethereum) {
-            alert("Do you have MetaMask installed? If not, get it here: https://metamask.io/");
-            return;
-            }
-    
-            const accounts = await ethereum.request({ method: "eth_requestAccounts" });
-    
-            console.log("Connected", accounts[0]);
-            setCurrentAccount(accounts[0]);
-        } catch (error) {
-            console.log(error)
             }
         }
 
@@ -76,7 +102,7 @@ export default function App() {
                 <div className='text-block'>
                     Connect your wallet to get started!
                 </div>
-                <button className="walletButton" onClick={connectWallet}>
+                <button className="walletButton" onClick={connect}>
                     Click here to connect wallet
                 </button>
                 </>
