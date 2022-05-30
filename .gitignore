@@ -1,0 +1,6 @@
+data/
+backend/node_modules/*
+backend/files/*
+backend/.env
+frontend/node_modules/*
+.vscode
