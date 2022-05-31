@@ -48,10 +48,6 @@ contract GeneticNFTFactory is ERC721URIStorage {
       return newTokenId;
     }
 
-
-    /* 
-    TODO: update so just returns all the NFTs from a particular address / owner (ie. msg.sender)
-     */
     function fetchMyNFTs() public view returns (GeneticNFT[] memory) {
       uint totalItemCount = _tokenIds.current();
       uint itemCount = 0;
