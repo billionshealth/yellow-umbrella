@@ -18,29 +18,38 @@ contract GeneticNFTFactory is ERC721URIStorage {
 
     struct GeneticNFT {
       uint256 tokenId;
-      address payable seller;
-      address payable owner;
-      uint256 price;
-      bool sold;
+      uint256 geneticHash;
+      address owner;
     }
 
     event GeneticNFTCreated (
       uint256 indexed tokenId,
-      address seller,
-      address owner,
-      uint256 price,
-      bool sold
+      uint256 geneticHash,
+      address owner
     );
 
     constructor() ERC721("Genetic Mandala NFTs", "MAND") {}
 
     /* Mints a genetic NFT */
     function createNFT(string memory tokenURI) public payable returns (uint) {
+      // TODO: add geneticHash as an input variable when creating the NFT
+
       _tokenIds.increment();
       uint256 newTokenId = _tokenIds.current();
 
       _mint(msg.sender, newTokenId);
       _setTokenURI(newTokenId, tokenURI);
+
+      uint256 geneticHash = 1050;
+
+      idToGeneticNFT[newTokenId] = GeneticNFT({
+        tokenId: newTokenId,
+        geneticHash: geneticHash,
+        owner: msg.sender
+    });
+
+      emit GeneticNFTCreated(newTokenId, geneticHash, msg.sender);
+
       return newTokenId;
     }
 
@@ -70,4 +79,7 @@ contract GeneticNFTFactory is ERC721URIStorage {
       }
       return items;
     }
+
+    // TODO: add function for recombining with others
+
 }

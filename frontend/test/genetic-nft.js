@@ -15,6 +15,8 @@ describe("GeneticNFT", function() {
       await geneticNFTFactory.createNFT("https://www.mytokenlocation2.com")
 
     });
+
+    // TODO: add emmission of NFT when created
     
     it("Should return the tokens", async function() {
       const items = await geneticNFTFactory.fetchMyNFTs();
