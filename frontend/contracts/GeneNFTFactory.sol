@@ -6,8 +6,6 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "hardhat/console.sol";
 
-// TODO: add ability to 'recombine' with others
-
 contract GeneticNFTFactory is ERC721URIStorage {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
