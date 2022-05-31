@@ -23,9 +23,9 @@ module.exports = {
     hardhat: {
       chainId: 1337
     },
-    localhost: {
-      url: 'http://localhost:8545',
-    },
+    // localhost: {
+    //   url: 'http://localhost:8545',
+    // },
     emerald_mainnet: {
       chainId: 42262,
       url: 'https://emerald.oasis.dev',
