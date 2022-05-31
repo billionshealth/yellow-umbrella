@@ -70,7 +70,7 @@ export default function App() {
         const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
         let transaction = await geneticNFTcontract.createNFT("https://add-address-here.com", 1050)
         await transaction.wait()
-        console.log("NFT has been minted. Transaction: ", transaction)
+        console.log("NFT has been minted. Transaction hash: ", transaction.hash)
     }
 
     async function checkProvider() {
@@ -166,7 +166,7 @@ export default function App() {
                 {/* TODO: add the minted NFT loading here */}
             </div>
 
-            
+            {/* Temporary functions to support development */}
             <button onClick={checkProvider}>Check current provider</button>
 
 
