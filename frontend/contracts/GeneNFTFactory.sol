@@ -29,16 +29,13 @@ contract GeneticNFTFactory is ERC721URIStorage {
     constructor() ERC721("Genetic Mandala NFTs", "MAND") {}
 
     /* Mints a genetic NFT */
-    function createNFT(string memory tokenURI) public payable returns (uint) {
-      // TODO: add geneticHash as an input variable when creating the NFT
+    function createNFT(string memory tokenURI, uint256 geneticHash) public payable returns (uint) {
 
       _tokenIds.increment();
       uint256 newTokenId = _tokenIds.current();
 
       _mint(msg.sender, newTokenId);
       _setTokenURI(newTokenId, tokenURI);
-
-      uint256 geneticHash = 1050;
 
       idToGeneticNFT[newTokenId] = GeneticNFT({
         tokenId: newTokenId,

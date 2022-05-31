@@ -12,8 +12,8 @@ describe("GeneticNFT", function() {
     });
 
     it("Should create two tokens", async function() {
-      await geneticNFTFactory.createNFT("https://www.mytokenlocation.com")
-      await geneticNFTFactory.createNFT("https://www.mytokenlocation2.com")
+      await geneticNFTFactory.createNFT("https://www.mytokenlocation.com", 1050)
+      await geneticNFTFactory.createNFT("https://www.mytokenlocation2.com", 1051)
 
     });
 
