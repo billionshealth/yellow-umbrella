@@ -17,7 +17,7 @@ async function main() {
 
 
   // We get the contract to deploy
-  const GeneticNFT = await hre.ethers.getContractFactory("GeneticNIFT");
+  const GeneticNFT = await hre.ethers.getContractFactory("GeneticNFTFactory");
   const geneticNFT = await GeneticNFT.deploy();
 
 
