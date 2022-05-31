@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react'
 import axios from "axios"
 import './App.css'
-import { ethers } from 'ethers'
+import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+
+import {
+    geneticNFTAddress
+} from './config'
+
+import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
 
 const providerOptions = {
     coinbasewallet: {
@@ -16,7 +22,6 @@ const providerOptions = {
           darkMode: false // Optional. Use dark theme, defaults to false
         }
       },
-
   };
 
 
@@ -24,6 +29,7 @@ export default function App() {
     const [file, setFile] = useState()
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
+    const [hasNFTs, setHasNFTs] = useState(false);
 
     const web3Modal = new Web3Modal({
         network: "mainnet", 
@@ -47,9 +53,28 @@ export default function App() {
 
         const accounts = await web3Provider.request({ method: 'eth_requestAccounts' });
         setCurrentAccount(accounts[0]);
-
+        
         const provider = new ethers.providers.Web3Provider(web3Provider);
         setProvider(provider);
+    }
+
+    async function loadNFTs() {
+        const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, provider)
+        const geneticNFTdata = await geneticNFTcontract.fetchMyNFTs()
+
+        // TODO: create function, using this tutorial: https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb
+    }
+
+    async function mintNFT() {
+        const signer = provider.getSigner()
+        const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
+        let transaction = await geneticNFTcontract.createNFT("https://add-address-here.com", 1050)
+        await transaction.wait()
+        console.log("NFT has been minted. Transaction: ", transaction)
+    }
+
+    async function checkProvider() {
+        console.log(provider)
     }
 
     const checkIfWalletIsConnected = async () => {
@@ -122,11 +147,30 @@ export default function App() {
                     type="file" accept=".txt"></input> 
                     {/* TODO: modify to accept other file types, such as VCF */}
 
-                    <button className="submitButton" type="submit">Submit</button>
+                    <button className="submitButton" type="submit">Submit genetic data</button>
                 </form>
             </div>
+
+            <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+
+            <div className="header">
+                Your genetic NFTs 
+            </div>
+
+            <div className="text-block">
+                If you have any genetic NFTs, they'll appear here. <br/><br/>Make sure you're connected with
+                the same wallet you minted your NFTs with. 
+            </div>
+
+            <div>
+                {/* TODO: add the minted NFT loading here */}
+            </div>
+
+            
+            <button onClick={checkProvider}>Check current provider</button>
+
+
         </div>
     </div>
-
     )
   }
