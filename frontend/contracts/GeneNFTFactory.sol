@@ -5,14 +5,16 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "hardhat/console.sol";
-
+  
 contract GeneticNFTFactory is ERC721URIStorage {
     using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+    Counters.Counter _tokenIds;
 
     address payable owner;
 
-    mapping(uint256 => GeneticNFT) private idToGeneticNFT;
+    // uint temp = 2581052387591028358;
+
+    mapping(uint256 => GeneticNFT) idToGeneticNFT;
 
     struct GeneticNFT {
       uint256 tokenId;
@@ -47,6 +49,11 @@ contract GeneticNFTFactory is ERC721URIStorage {
 
       return newTokenId;
     }
+
+    // function fetchMyNFTs() public returns (uint) {
+      // return temp;
+    // }
+
 
     function fetchMyNFTs() public view returns (GeneticNFT[] memory) {
       uint totalItemCount = _tokenIds.current();
