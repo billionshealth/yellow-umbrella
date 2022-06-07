@@ -5,6 +5,7 @@ import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import { Link } from 'react-router-dom';
+import NFTdisplay from './components/NFTdisplay';
 
 import {
     geneticNFTAddress
@@ -187,30 +188,8 @@ export default function App() {
 
                 <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
 
-                <div className="header">
-                    Your genetic NFTs 
-                </div>
-
-                <div className="text-block">
-                    If you have any genetic NFTs, they'll appear here. <br/><br/>(Make sure you're connected with
-                    the same wallet you minted your NFTs with.)
-                </div>
-
-                {hasNfts && (
-                    <div className="to-style">
-                    {
-                    nfts.map((nft, i) => (
-                        <div key={i}>
-                        <p>TokenID: {nft.tokenId}</p>
-                        <p>Genetic Hash: {nft.geneticHash}</p>
-                        {/* TO DO: add the image itself here */}
-                        <p>Owner address: {nft.owner}</p>
-                        </div>
-                    ))
-                    }
-                    </div>
-                )}
-
+                <NFTdisplay hasNfts={hasNfts} nfts={nfts}/>
+                
                 <div className='text-block'>
                         Links to other pages below:
                 </div>
