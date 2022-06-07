@@ -4,6 +4,7 @@ import './App.css'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+import { Link } from 'react-router-dom';
 
 import {
     geneticNFTAddress
@@ -121,65 +122,72 @@ export default function App() {
     }
 
   return (
-      <div className="mainContainer">
-        <div className="dataContainer">
-            <div className="header">
-                Yellow Umbrella ☂ 
-            </div>
-
-            {!provider && (
-                <>
-                <div className='text-block'>
-                    Connect your wallet to get started!
+        <div className="mainContainer">
+            <div className="dataContainer">
+                <div className="header">
+                    Yellow Umbrella ☂ 
                 </div>
-                <button className="walletButton" onClick={connect}>
-                    Click here to connect wallet
-                </button>
-                </>
-            )}
 
-            <div className="text-block">
-                Upload your DNA sequence to get a unique bio NFT
+                {!provider && (
+                    <>
+                    <div className='text-block'>
+                        Connect your wallet to get started!
+                    </div>
+                    <button className="walletButton" onClick={connect}>
+                        Click here to connect wallet
+                    </button>
+                    </>
+                )}
+
+                <div className="text-block">
+                    Upload your DNA sequence to get a unique bio NFT
+                </div>
+
+                <div className="text-block">
+                    Select a .txt or .vcf file:
+                </div>
+
+                <div className="submit-block">
+                    <form onSubmit={submit}>
+                        <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
+                        type="file" accept=".txt"></input> 
+                        {/* TODO: modify to accept other file types, such as VCF */}
+
+                        <button className="submitButton" type="submit">Submit genetic data</button>
+                    </form>
+                </div>
+
+                <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+                <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
+
+                <div className="header">
+                    Your genetic NFTs 
+                </div>
+
+                <div className="text-block">
+                    If you have any genetic NFTs, they'll appear here. <br/><br/>Make sure you're connected with
+                    the same wallet you minted your NFTs with. 
+                </div>
+
+                {hasNFTs &&  (
+                    <>
+                        We're showing the NFTs here.
+                        {loadedNFTs}
+                    </>
+                )}
+
+                {/* Temporary functions to support development */}
+                <button onClick={checkProvider}>Check current provider</button>
+
+
+                <div className='text-block'>
+                        Links to other pages below:
+                </div>
+                <ul>
+                    <li><Link to="/dashboard"><a className="">View your NFTs</a></Link></li>
+                </ul>
+
             </div>
-
-            <div className="text-block">
-                Select a .txt or .vcf file:
-            </div>
-
-            <div className="submit-block">
-                <form onSubmit={submit}>
-                    <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
-                    type="file" accept=".txt"></input> 
-                    {/* TODO: modify to accept other file types, such as VCF */}
-
-                    <button className="submitButton" type="submit">Submit genetic data</button>
-                </form>
-            </div>
-
-            <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
-            <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
-
-            <div className="header">
-                Your genetic NFTs 
-            </div>
-
-            <div className="text-block">
-                If you have any genetic NFTs, they'll appear here. <br/><br/>Make sure you're connected with
-                the same wallet you minted your NFTs with. 
-            </div>
-
-            {hasNFTs &&  (
-                <>
-                    We're showing the NFTs here.
-                    {loadedNFTs}
-                </>
-            )}
-
-            {/* Temporary functions to support development */}
-            <button onClick={checkProvider}>Check current provider</button>
-
-
         </div>
-    </div>
     )
   }
