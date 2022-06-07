@@ -16,7 +16,7 @@ const providerOptions = {
     coinbasewallet: {
         package: CoinbaseWalletSDK, // Required
         options: {
-          appName: "My Awesome App", // Required
+          appName: "Yellow Umbrella", // Required
           infuraId: process.env.REACT_APP_INFURA_ID,
           rpc: "", // Optional if `infuraId` is provided; otherwise it's required
           chainId: 1, // Optional. It defaults to 1 if not provided
@@ -183,6 +183,8 @@ export default function App() {
                 </div>
 
                 <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+
+
                 <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
 
                 <div className="header">
@@ -205,17 +207,9 @@ export default function App() {
                         <p>Owner address: {nft.owner}</p>
                         </div>
                     ))
-                    }   
+                    }
                     </div>
                 )}
-
-                {/* {loadingState === 'loaded' && nfts.length &&  (
-                    <>
-                        We're showing the NFTs here.
-                        {nfts}
-                    </>
-                )} */}
-
 
                 <div className='text-block'>
                         Links to other pages below:
