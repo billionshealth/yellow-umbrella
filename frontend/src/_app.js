@@ -31,11 +31,7 @@ export default function App() {
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
     const [nfts, setNfts] = useState([])
-    const [loadingState, setLoadingState] = useState('not-loaded')
-
-
-    const [hasNFTs, setHasNFTs] = useState(false);
-    const [loadedNFTs, setLoadedNFTs] = useState();
+    const [hasNfts, setHasNfts] = useState(false);
 
     const web3Modal = new Web3Modal({
         network: "mainnet", 
@@ -70,14 +66,12 @@ export default function App() {
         const geneticNFTdata = await geneticNFTcontract.fetchMyNFTs()
 
         const items = await Promise.all(geneticNFTdata.map(async i => {
-        //     const tokenUri = await geneticNFTcontract.tokenURI(i.tokenId)
-        //     const meta = await axios.get(tokenUri)
-        //     let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
+        // TODO: add loading of IPFS metadata and image using tokenURI. template code below:
+            //     const tokenUri = await geneticNFTcontract.tokenURI(i.tokenId)
+            //     const meta = await axios.get(tokenUri)
             let item = {
-        //       price,
               tokenId: i.tokenId.toNumber(),
               geneticHash: i.geneticHash.toNumber(),
-        //       seller: i.seller,
               owner: i.owner,
         //       image: meta.data.image,
         //       name: meta.data.name,
@@ -86,11 +80,11 @@ export default function App() {
             return item
           }))
           setNfts(items)
-          setLoadingState('loaded') 
-
-        // const items = await Promise.all(geneticNFTdata)
-        // setLoadedNFTs(geneticNFTdata)
-        // setHasNFTs(true) // TODO: add conditional, to check whether there IS some genetic NFT data
+          
+          if (items.length > 0) {
+            setHasNfts(true)
+          }
+          
         console.log("NFTs loaded. Details: ", items)
     }
 
@@ -200,7 +194,7 @@ export default function App() {
                     the same wallet you minted your NFTs with.)
                 </div>
 
-                {loadingState && (
+                {hasNfts && (
                     <div className="to-style">
                     {
                     nfts.map((nft, i) => (
