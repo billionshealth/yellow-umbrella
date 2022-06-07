@@ -9,4 +9,5 @@ frontend/src/artifacts/*
 **.DS_Store
 .env
 **/cache/*
-
+backend/package-lock.json
+frontend/package-lock.json
