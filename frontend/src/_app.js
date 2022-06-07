@@ -6,6 +6,8 @@ import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import { Link } from 'react-router-dom';
 import NFTdisplay from './components/NFTdisplay';
+import CreateNFT from './components/CreateNFT';
+
 
 import {
     geneticNFTAddress
@@ -28,7 +30,6 @@ const providerOptions = {
 
 
 export default function App() {
-    const [file, setFile] = useState()
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
 
@@ -59,14 +60,6 @@ export default function App() {
         setProvider(provider);
     }
 
-
-    async function mintNFT() {
-        const signer = provider.getSigner()
-        const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
-        let transaction = await geneticNFTcontract.createNFT("https://add-address-here.com", 1050)
-        await transaction.wait()
-        console.log("NFT has been minted. Transaction hash: ", transaction.hash)
-    }
 
     async function checkProvider() {
         console.log(provider)
@@ -101,16 +94,6 @@ export default function App() {
     checkIfWalletIsConnected();
     }, [])
 
-    const submit = async event => {
-        event.preventDefault()
-
-        const formData = new FormData()
-        formData.append("file", file, `${currentAccount}.txt`)
-
-        const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
-        console.log(result.data)
-    }
-
   return (
         <div className="mainContainer">
             <div className="dataContainer">
@@ -133,25 +116,7 @@ export default function App() {
                 {/* Temporary functions to support development */}
                 <button onClick={checkProvider}>Check current provider</button>
 
-                <div className="text-block">
-                    Upload your DNA sequence to get a unique bio NFT
-                </div>
-
-                <div className="text-block">
-                    Select a .txt or .vcf file:
-                </div>
-
-                <div className="submit-block">
-                    <form onSubmit={submit}>
-                        <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
-                        type="file" accept=".txt"></input> 
-                        {/* TODO: modify to accept other file types, such as VCF */}
-
-                        <button className="submitButton" type="submit">Submit genetic data</button>
-                    </form>
-                </div>
-
-                <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+               <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
 
                 <NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>
                 
