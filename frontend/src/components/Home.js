@@ -8,4 +8,5 @@ export default function Home() {
   )
 }
 
-// TODO: add narrative and links away to other pages
+// TODO: add narrative and links away to other pages.
+// include explanation of data storage methodology
