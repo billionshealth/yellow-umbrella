@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 
 import {
@@ -91,7 +92,6 @@ export default function App() {
             }
         }
 
-
     useEffect(() => {
     checkIfWalletIsConnected();
     }, [])
@@ -118,11 +118,10 @@ export default function App() {
                         
                     )}
 
-                    {/* Temporary functions to support development */}
-                    <button onClick={checkProvider}>Check current provider</button>
+                    <button onClick={checkProvider}>Check current provider (temporary dev button)</button>
 
                     <Routes>
-                        <Route path="/"></Route>
+                        <Route path="/" element={<Home/>} ></Route>
                         <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
                         <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
                     </Routes>
