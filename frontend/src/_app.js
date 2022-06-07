@@ -70,9 +70,7 @@ export default function App() {
 
                     {!currentAccount && (
                         <>
-                            <button className="walletButton" onClick={connect}>
-                                Connect wallet to get started
-                            </button>
+                            <button className="walletButton" onClick={connect}>Connect wallet to get started</button>
                         </>
                     )}
 
