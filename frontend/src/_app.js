@@ -30,6 +30,10 @@ export default function App() {
     const [file, setFile] = useState()
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
+    const [nfts, setNfts] = useState([])
+    const [loadingState, setLoadingState] = useState('not-loaded')
+
+
     const [hasNFTs, setHasNFTs] = useState(false);
     const [loadedNFTs, setLoadedNFTs] = useState();
 
@@ -64,11 +68,30 @@ export default function App() {
         const signer = provider.getSigner()
         const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
         const geneticNFTdata = await geneticNFTcontract.fetchMyNFTs()
+
+        const items = await Promise.all(geneticNFTdata.map(async i => {
+        //     const tokenUri = await geneticNFTcontract.tokenURI(i.tokenId)
+        //     const meta = await axios.get(tokenUri)
+        //     let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
+            let item = {
+        //       price,
+              tokenId: i.tokenId.toNumber(),
+              geneticHash: i.geneticHash.toNumber(),
+        //       seller: i.seller,
+              owner: i.owner,
+        //       image: meta.data.image,
+        //       name: meta.data.name,
+        //       description: meta.data.description,
+            }
+            return item
+          }))
+          setNfts(items)
+          setLoadingState('loaded') 
+
         // const items = await Promise.all(geneticNFTdata)
         // setLoadedNFTs(geneticNFTdata)
         // setHasNFTs(true) // TODO: add conditional, to check whether there IS some genetic NFT data
-        console.log("NFTs loaded. Details: ", geneticNFTdata) // items)
-        // TODO: create function, using this tutorial: https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb
+        console.log("NFTs loaded. Details: ", items)
     }
 
     async function mintNFT() {
@@ -111,6 +134,10 @@ export default function App() {
     checkIfWalletIsConnected();
     }, [])
 
+    // useEffect(() => {
+    //     loadNFTs()
+    // }, [])
+
     const submit = async event => {
         event.preventDefault()
 
@@ -137,7 +164,11 @@ export default function App() {
                         Click here to connect wallet
                     </button>
                     </>
+                    
                 )}
+
+                {/* Temporary functions to support development */}
+                <button onClick={checkProvider}>Check current provider</button>
 
                 <div className="text-block">
                     Upload your DNA sequence to get a unique bio NFT
@@ -165,19 +196,31 @@ export default function App() {
                 </div>
 
                 <div className="text-block">
-                    If you have any genetic NFTs, they'll appear here. <br/><br/>Make sure you're connected with
-                    the same wallet you minted your NFTs with. 
+                    If you have any genetic NFTs, they'll appear here. <br/><br/>(Make sure you're connected with
+                    the same wallet you minted your NFTs with.)
                 </div>
 
-                {hasNFTs &&  (
-                    <>
-                        We're showing the NFTs here.
-                        {loadedNFTs}
-                    </>
+                {loadingState && (
+                    <div className="to-style">
+                    {
+                    nfts.map((nft, i) => (
+                        <>
+                        <p>TokenID: {nft.tokenId}</p>
+                        <p>Genetic Hash: {nft.geneticHash}</p>
+                        {/* TO DO: add the image itself here */}
+                        <p>Owner address: {nft.owner}</p>
+                        </>
+                    ))
+                    }   
+                    </div>
                 )}
 
-                {/* Temporary functions to support development */}
-                <button onClick={checkProvider}>Check current provider</button>
+                {/* {loadingState === 'loaded' && nfts.length &&  (
+                    <>
+                        We're showing the NFTs here.
+                        {nfts}
+                    </>
+                )} */}
 
 
                 <div className='text-block'>
