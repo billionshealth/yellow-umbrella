@@ -5,6 +5,7 @@ import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
 
@@ -96,39 +97,49 @@ export default function App() {
 
   return (
         <div className="mainContainer">
-            <div className="dataContainer">
-                <div className="header">
-                    Yellow Umbrella ☂ 
-                </div>
-
-                {!provider && (
-                    <>
-                    <div className='text-block'>
-                        Connect your wallet to get started!
+            <Router>
+                <div className="dataContainer">
+                    <div className="header">
+                        Yellow Umbrella ☂ 
                     </div>
-                    <button className="walletButton" onClick={connect}>
-                        Click here to connect wallet
-                    </button>
-                    </>
+
+                    <nav>
+                            <Link to="/my-nfts">View your NFTs</Link>
+                            <Link to="/recombine">Recombine your NFT with others</Link>
+                            {/* <button onClick={changePage}>change page</button> */}
+                    </nav>
+
+                    {!provider && (
+                        <>
+                        <div className='text-block'>
+                            Connect your wallet to get started!
+                        </div>
+                        <button className="walletButton" onClick={connect}>
+                            Click here to connect wallet
+                        </button>
+                        </>
+                        
+                    )}
+
+                    {/* Temporary functions to support development */}
+                    <button onClick={checkProvider}>Check current provider</button>
+
+                    <div className="header">
+                        Below are the routed results.
+                    </div>
+
+                    <Routes>
+                        <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
+                        <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
+                    </Routes>
+
                     
-                )}
+                    <div className='text-block'>
+                            Links to other pages below:
+                    </div>
 
-                {/* Temporary functions to support development */}
-                <button onClick={checkProvider}>Check current provider</button>
-
-               <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
-
-                <NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>
-                
-                <div className='text-block'>
-                        Links to other pages below:
                 </div>
-                <nav>
-                        <Link to="/my-nfts">View your NFTs</Link>
-                        <Link to="/recombine">Recombine your NFT with others</Link>
-                        {/* <button onClick={changePage}>change page</button> */}
-                </nav>
-            </div>
+            </Router>
         </div>
     )
   }
