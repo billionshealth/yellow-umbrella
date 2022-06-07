@@ -198,12 +198,12 @@ export default function App() {
                     <div className="to-style">
                     {
                     nfts.map((nft, i) => (
-                        <>
+                        <div key={i}>
                         <p>TokenID: {nft.tokenId}</p>
                         <p>Genetic Hash: {nft.geneticHash}</p>
                         {/* TO DO: add the image itself here */}
                         <p>Owner address: {nft.owner}</p>
-                        </>
+                        </div>
                     ))
                     }   
                     </div>
