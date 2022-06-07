@@ -1,6 +1,7 @@
 data/
 backend/node_modules/*
 backend/files/*
+backend/images/*
 backend/.env
 frontend/node_modules/*
 frontend/src/artifacts/*
