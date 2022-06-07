@@ -8,5 +8,5 @@ frontend/src/artifacts/*
 **.DS_Store
 .env
 **/cache/*
-
+.aws-sam**
 
