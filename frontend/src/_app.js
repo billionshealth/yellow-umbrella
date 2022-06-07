@@ -8,6 +8,7 @@ import { Link } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
+import Navbar from './components/Navbar';
 
 
 import {
@@ -103,11 +104,7 @@ export default function App() {
                         Yellow Umbrella ☂ 
                     </div>
 
-                    <nav>
-                            <Link to="/my-nfts">View your NFTs</Link>
-                            <Link to="/recombine">Recombine your NFT with others</Link>
-                            {/* <button onClick={changePage}>change page</button> */}
-                    </nav>
+                    <Navbar />
 
                     {!provider && (
                         <>
@@ -124,19 +121,11 @@ export default function App() {
                     {/* Temporary functions to support development */}
                     <button onClick={checkProvider}>Check current provider</button>
 
-                    <div className="header">
-                        Below are the routed results.
-                    </div>
-
                     <Routes>
+                        <Route path="/"></Route>
                         <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
                         <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
                     </Routes>
-
-                    
-                    <div className='text-block'>
-                            Links to other pages below:
-                    </div>
 
                 </div>
             </Router>
