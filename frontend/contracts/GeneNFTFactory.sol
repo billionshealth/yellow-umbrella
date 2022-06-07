@@ -12,8 +12,6 @@ contract GeneticNFTFactory is ERC721URIStorage {
 
     address payable owner;
 
-    // uint temp = 2581052387591028358;
-
     mapping(uint256 => GeneticNFT) idToGeneticNFT;
 
     struct GeneticNFT {
@@ -49,11 +47,6 @@ contract GeneticNFTFactory is ERC721URIStorage {
 
       return newTokenId;
     }
-
-    // function fetchMyNFTs() public returns (uint) {
-      // return temp;
-    // }
-
 
     function fetchMyNFTs() public view returns (GeneticNFT[] memory) {
       uint totalItemCount = _tokenIds.current();

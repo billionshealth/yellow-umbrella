@@ -63,9 +63,6 @@ export default function App() {
         const signer = provider.getSigner()
         const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
         const geneticNFTdata = await geneticNFTcontract.fetchMyNFTs()
-        // const items = await Promise.all(geneticNFTdata)
-        // setLoadedNFTs(geneticNFTdata)
-        // setHasNFTs(true) // TODO: add conditional, to check whether there IS some genetic NFT data
         console.log("NFTs loaded. Details: ", geneticNFTdata) // items)
         // TODO: create function, using this tutorial: https://dev.to/edge-and-node/building-scalable-full-stack-apps-on-ethereum-with-polygon-2cfb
     }
