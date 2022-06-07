@@ -31,8 +31,6 @@ export default function App() {
     const [file, setFile] = useState()
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
-    const [nfts, setNfts] = useState([])
-    const [hasNfts, setHasNfts] = useState(false);
 
     const web3Modal = new Web3Modal({
         network: "mainnet", 
@@ -61,33 +59,6 @@ export default function App() {
         setProvider(provider);
     }
 
-    async function loadNFTs() {
-        const signer = provider.getSigner()
-        const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
-        const geneticNFTdata = await geneticNFTcontract.fetchMyNFTs()
-
-        const items = await Promise.all(geneticNFTdata.map(async i => {
-        // TODO: add loading of IPFS metadata and image using tokenURI. template code below:
-            //     const tokenUri = await geneticNFTcontract.tokenURI(i.tokenId)
-            //     const meta = await axios.get(tokenUri)
-            let item = {
-              tokenId: i.tokenId.toNumber(),
-              geneticHash: i.geneticHash.toNumber(),
-              owner: i.owner,
-        //       image: meta.data.image,
-        //       name: meta.data.name,
-        //       description: meta.data.description,
-            }
-            return item
-          }))
-          setNfts(items)
-          
-          if (items.length > 0) {
-            setHasNfts(true)
-          }
-          
-        console.log("NFTs loaded. Details: ", items)
-    }
 
     async function mintNFT() {
         const signer = provider.getSigner()
@@ -125,13 +96,10 @@ export default function App() {
             }
         }
 
+
     useEffect(() => {
     checkIfWalletIsConnected();
     }, [])
-
-    // useEffect(() => {
-    //     loadNFTs()
-    // }, [])
 
     const submit = async event => {
         event.preventDefault()
@@ -185,20 +153,16 @@ export default function App() {
 
                 <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
 
-
-                <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
-
-                <NFTdisplay hasNfts={hasNfts} nfts={nfts}/>
+                <NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>
                 
                 <div className='text-block'>
                         Links to other pages below:
                 </div>
-                <ul>
-                    <li><Link to="/my-nfts">View your NFTs</Link></li>
-                    <li><Link to="/recombine">Recombine your NFT with others</Link></li>
-
-                </ul>
-
+                <nav>
+                        <Link to="/my-nfts">View your NFTs</Link>
+                        <Link to="/recombine">Recombine your NFT with others</Link>
+                        {/* <button onClick={changePage}>change page</button> */}
+                </nav>
             </div>
         </div>
     )
