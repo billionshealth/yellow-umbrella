@@ -49,9 +49,6 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
       the same wallet you minted your NFTs with.)
       </div>
 
-      {/* Temporary button to trigger -> will be made automatic */}
-      <button className="submitButton" onClick={loadNFTs}>Load my NFTs</button>
-
       {hasNfts && (
           <div className="to-style">
           {
