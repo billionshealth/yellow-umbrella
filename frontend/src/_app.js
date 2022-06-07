@@ -184,7 +184,9 @@ export default function App() {
                         Links to other pages below:
                 </div>
                 <ul>
-                    <li><Link to="/dashboard">View your NFTs</Link></li>
+                    <li><Link to="/my-nfts">View your NFTs</Link></li>
+                    <li><Link to="/recombine">Recombine your NFT with others</Link></li>
+
                 </ul>
 
             </div>
