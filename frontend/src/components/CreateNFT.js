@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Contract, ethers } from 'ethers'
 import axios from "axios"
+import { uploadIPFS } from '../helper/uploadIPFS';
 
 
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
@@ -19,9 +20,20 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
     async function mintNFT() {
         const signer = provider.getSigner()
         const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
-        let transaction = await geneticNFTcontract.createNFT("https://add-address-here.com", 1050)
+
+        const metadata = await uploadIPFS()
+
+        // TODO: set up appropriate wait for the metadata to be returned from IPFS
+
+        console.log("metadata in mintNFT is", metadata)
+
+        const geneticHash = 1050
+        
+        let transaction = await geneticNFTcontract.createNFT(metadata.url, geneticHash)
+
         await transaction.wait()
         console.log("NFT has been minted. Transaction hash: ", transaction.hash)
+
     }
 
   return (

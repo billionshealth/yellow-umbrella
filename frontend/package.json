@@ -18,6 +18,7 @@
     "hardhat": "^2.9.3",
     "http": "^0.0.1-security",
     "https-browserify": "^1.0.0",
+    "nft.storage": "^6.3.0",
     "os": "^0.1.2",
     "path": "^0.12.7",
     "react": "17.0.1",
