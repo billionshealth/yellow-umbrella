@@ -23,9 +23,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         const metadata = await uploadIPFS()
 
-        // TODO: set up appropriate wait for the metadata to be returned from IPFS
-
-        console.log("metadata in mintNFT is", metadata)
+        console.log("metadata for NFT is:", metadata)
 
         const geneticHash = 1050
         
