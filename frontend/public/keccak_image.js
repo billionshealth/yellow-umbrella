@@ -1,4 +1,3 @@
-
 let downloadImage = false; // To turn on/off image downloading 
 let inputValueForHash = 'hello world'; // Change this for new hashes - also used in image name
 let hashOutput = keccak256(inputValueForHash).toString('hex');
@@ -25,7 +24,7 @@ function draw(){
   if(frameCount == 1){
     
     for(let rNum=0; rNum < numRows; rNum++){
-      for(let cNum=0; cNum< numCols; cNum++){
+      for(let cNum=0; cNum < numCols; cNum++){
         
         colorIndex = (cNum+(rNum*numRows))%hashOutput.length;
         
@@ -44,9 +43,6 @@ function draw(){
         // console.log(cNum+(rNum*numRows),rNum+cNum,colorIndex,redVal,greenVal,blueVal,alphaVal);
       }
     }
-    
     // if(downloadImage) saveCanvas(cnv, inputValueForHash, 'jpg');
-    
-
   }
 }
