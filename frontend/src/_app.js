@@ -1,4 +1,4 @@
-import { useEffect, useState, Component } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
@@ -68,7 +68,8 @@ export default function App() {
                         Yellow Umbrella ☂ 
                     </div>
 
-                    <div>
+                    {/* temporarily here for dev purposes */}
+                    <div id="canvas">
                         <ReactP5Wrapper sketch={sketch}></ReactP5Wrapper>
                     </div>
 
@@ -94,6 +95,7 @@ export default function App() {
 
                 </div>
             </Router>
+
         </div>
     )
   }

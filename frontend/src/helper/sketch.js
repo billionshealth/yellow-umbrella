@@ -6,7 +6,7 @@
 export default function sketch(p) {
 
   const canvasSize = 300;//min(windowWidth,windowHeight)*0.8;
-  const hashOutput = "47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad"
+  const hashOutput = "47173285a8d7341e5e972fc677286384f802f8ef42a5ec5f03bbfa254cb01fad".toString('hex')
   let cnv;
 
   p.setup = () => {
@@ -14,7 +14,7 @@ export default function sketch(p) {
     // cnv.parent("canvas")
     cnv.id("nft-image")
   
-      // cnv.hide() // This hides it. (equivalent to display:none)
+    // cnv.hide() // This hides it. (equivalent to display:none)
   
   }
   
