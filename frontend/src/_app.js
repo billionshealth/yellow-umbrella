@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Component } from 'react'
 import './App.css'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
@@ -8,6 +8,8 @@ import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import P5Wrapper, { ReactP5Wrapper } from 'react-p5-wrapper';
+import sketch from './helper/sketch';
 
 import {
     geneticNFTAddress
@@ -64,6 +66,10 @@ export default function App() {
                 <div className="dataContainer">
                     <div className="header">
                         Yellow Umbrella ☂ 
+                    </div>
+
+                    <div>
+                        <ReactP5Wrapper sketch={sketch}></ReactP5Wrapper>
                     </div>
 
                     <Navbar />
