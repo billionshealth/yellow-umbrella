@@ -60,7 +60,6 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
                 <p>TokenID: {nft.tokenId}</p>
                 <img src={nft.image}/>
                 <p>Genetic Hash: {nft.geneticHash}</p>
-                {/* TO DO: add the image itself here */}
                 <p>Owner address: {nft.owner}</p>
                 <p>Name: {nft.name}</p>
                 <p>Description: {nft.description}</p>
