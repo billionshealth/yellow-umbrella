@@ -71,6 +71,7 @@ contract GeneticNFTFactory is ERC721URIStorage {
       return items;
     }
 
-    // TODO: add function for recombining with others
+    // TODO: add function for recombining with others, if required.
+    // (note: logic may take place in frontend)
 
 }
