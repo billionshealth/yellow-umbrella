@@ -26,7 +26,7 @@ app.post('/api/images', upload.single('file'), async (req, res) => {
 
   const description = req.body.description
 
-  res.send("🤗")
+  res.send("Successfully uploaded file to AWS.")
 })
 
 app.listen(8080, () => console.log("listening on port 8080"))
