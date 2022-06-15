@@ -26,8 +26,10 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         console.log("metadata for NFT is:", metadata)
 
         const geneticHash = 1050
-        
-        let transaction = await geneticNFTcontract.createNFT(metadata.url, geneticHash)
+
+        const tokenURI = `https://ipfs.io/ipfs/${metadata.ipnft}/metadata.json`
+
+        let transaction = await geneticNFTcontract.createNFT(tokenURI, geneticHash)
 
         await transaction.wait()
         console.log("NFT has been minted. Transaction hash: ", transaction.hash)
