@@ -68,5 +68,11 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
           }
           </div>
         )}
+
+      {!hasNfts && (
+        <div className="to-style">
+          <p>Looks like either your wallet isn't connected or you don't have any NFTs connected to this wallet.</p>
+        </div>
+      )}
   </>
 )}
