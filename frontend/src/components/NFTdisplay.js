@@ -15,16 +15,14 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
     const items = await Promise.all(geneticNFTdata.map(async i => {
         const tokenUri = await geneticNFTcontract.tokenURI(i.tokenId)
         const meta = await axios.get(tokenUri)
-        const imageUri = `https://ipfs.io/ipfs/${meta.data.image.substring(7)}` // parse out the IPFS.IO link
-        const image = await axios.get(imageUri)
-          // TODO: load this image into the page as appropriate
+        const image = `https://ipfs.io/ipfs/${meta.data.image.substring(7)}` // parse out the IPFS.IO link
 
         let item = {
           tokenId: i.tokenId.toNumber(),
           geneticHash: i.geneticHash.toNumber(),
           owner: i.owner,
           tokenUri: tokenUri,
-          imageUri: imageUri,
+          image: image,
           name: meta.data.name,
           description: meta.data.description
         }
@@ -59,14 +57,13 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
           {
           nfts.map((nft, i) => (
               <div key={i}>
-              <p>TokenID: {nft.tokenId}</p>
-              <p>Genetic Hash: {nft.geneticHash}</p>
-              {/* TO DO: add the image itself here */}
-              <p>Owner address: {nft.owner}</p>
-              <p>URI (updated): {nft.tokenUri}</p>
-              <p>ImageURI: {nft.imageUri}</p>
-              <p>Name: {nft.name}</p>
-              <p>Description: {nft.description}</p>
+                <p>TokenID: {nft.tokenId}</p>
+                <img src={nft.image}/>
+                <p>Genetic Hash: {nft.geneticHash}</p>
+                {/* TO DO: add the image itself here */}
+                <p>Owner address: {nft.owner}</p>
+                <p>Name: {nft.name}</p>
+                <p>Description: {nft.description}</p>
               </div>
           ))
           }
