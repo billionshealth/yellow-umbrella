@@ -21,12 +21,6 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
     }
-
-    // async function getHash() {
-
-    // }
-
-
     
 
     async function mintNFT() {
