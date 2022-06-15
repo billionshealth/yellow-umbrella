@@ -3,12 +3,17 @@ import { Contract, ethers } from 'ethers'
 import axios from "axios"
 import { uploadIPFS } from '../helper/uploadIPFS';
 
-
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
+    const [fileHash, setFileHash] = useState(""); // TODO: update state from file hash
 
     const submit = async event => {
         event.preventDefault()
+
+        // const file_hash = ethers.utils.id('hello world') // temp code for testing
+        const file_hash = ethers.utils.id(file);
+
+        console.log("The file hash is ", file_hash)
 
         const formData = new FormData()
         formData.append("file", file, `${currentAccount}.txt`)
@@ -16,6 +21,13 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
     }
+
+    // async function getHash() {
+
+    // }
+
+
+    
 
     async function mintNFT() {
         const signer = provider.getSigner()
@@ -44,7 +56,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         <div className="text-block">
             Select a .txt or .vcf file:
-        </div>
+        </div>  
 
         <div className="submit-block">
             <form onSubmit={submit}>
