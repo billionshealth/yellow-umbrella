@@ -6,7 +6,7 @@ export default function sketch(p){
         canvas = p.createCanvas(300, 200);
         canvas.id("nft-image")
         p.textFont(40);
-        // canvas.hide()
+        canvas.hide()
         p.noStroke();
     }
 
