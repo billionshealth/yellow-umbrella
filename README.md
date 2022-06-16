@@ -38,6 +38,20 @@ npm start
 ```
 
 
+#### Deploy contracts
+From within the frontend folder, in one terminal window:
+```sh
+npx hardhat node
+```
+
+In another terminal window:
+```sh
+npx hardhat run scripts/deploy.js --network <network>
+```
+
+To deploy on local host, use "localhost" for <network>. To deploy on Oasis Emerald Testnet, use "emerald_testnet".
+
+
 #### Run front-end
 
 ```sh
