@@ -7,8 +7,8 @@ import sketch from '../helper/sketch';
 
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
-    const [fileHash, setFileHash] = useState("placeholderHash");
-
+    const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
+    
     const submit = async event => {
         event.preventDefault()
 
