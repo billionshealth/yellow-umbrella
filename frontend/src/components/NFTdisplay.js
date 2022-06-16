@@ -19,7 +19,7 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
 
         let item = {
           tokenId: i.tokenId.toNumber(),
-          geneticHash: i.geneticHash.toNumber(),
+          geneticHash: i.geneticHash,
           owner: i.owner,
           tokenUri: tokenUri,
           image: image,
@@ -59,7 +59,7 @@ export default function NFTdisplay({ provider, geneticNFTAddress, GeneticNFT }) 
               <div key={i}>
                 <p>TokenID: {nft.tokenId}</p>
                 <img src={nft.image}/>
-                <p>Genetic Hash: {nft.geneticHash}</p>
+                {/* <p>Genetic Hash: {nft.geneticHash}</p> */}
                 <p>Owner address: {nft.owner}</p>
                 <p>Name: {nft.name}</p>
                 <p>Description: {nft.description}</p>
