@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './App.css'
+// import './App.css'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
@@ -8,7 +8,7 @@ import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-
+import './styles/main.css'
 
 import {
     geneticNFTAddress
@@ -60,10 +60,10 @@ export default function App() {
     }
 
   return (
-        <div className="mainContainer">
+        <div>
             <Router>
-                <div className="dataContainer">
-                    <div className="header">
+                <div>
+                    <div className="text-4xl">
                         Yellow Umbrella ☂ 
                     </div>
 
