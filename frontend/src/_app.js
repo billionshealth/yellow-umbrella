@@ -22,6 +22,7 @@ export default function App() {
 
     const [currentAccount, setCurrentAccount] = useState("");
     const [provider, setProvider] = useState();
+    const [currentHash, setCurrentHash] = useState("updated hash placeholder");
 
     const providerOptions = {
         coinbasewallet: {
@@ -68,11 +69,6 @@ export default function App() {
                         Yellow Umbrella ☂ 
                     </div>
 
-                    {/* temporarily here for dev purposes */}
-                    <div id="canvas">
-                        <ReactP5Wrapper sketch={sketch}></ReactP5Wrapper>
-                    </div>
-
                     <Navbar />
 
                     {!currentAccount && (
@@ -92,6 +88,10 @@ export default function App() {
                         <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
                         <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
                     </Routes>
+
+                    <div id="canvas">
+                        <ReactP5Wrapper sketch={sketch} hash={currentHash}></ReactP5Wrapper>
+                    </div>
 
                 </div>
             </Router>
