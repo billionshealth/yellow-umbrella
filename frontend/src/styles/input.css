@@ -2,4 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* I can add custom classes here, for outside of tailwind */
+body {
+    background-color: #2E3237;
+    font-size: 12px;
+    width: 100%;
+    /* margin: 0; */
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+  }
+  

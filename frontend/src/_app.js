@@ -60,18 +60,19 @@ export default function App() {
     }
 
   return (
-        <div>
+        <div className="flex-col mx-auto">
             <Router>
-                <div>
-                    <div className="text-4xl">
-                        Yellow Umbrella ☂ 
+                    {/* TODO: add a logo here */}
+                    <div className="relative text-yellow-400 bg-black text-center text-bold mx-0 p-6 text-7xl">
+                        Yellow Umbrella ☂
                     </div>
+
+                    <button className="walletButton" onClick={connect}>Connect your wallet</button>
 
                     <Navbar />
 
                     {!currentAccount && (
                         <>
-                            <button className="walletButton" onClick={connect}>Connect wallet to get started</button>
                         </>
                     )}
 
@@ -87,7 +88,6 @@ export default function App() {
                         <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
                     </Routes>
 
-                </div>
             </Router>
 
         </div>
