@@ -49,7 +49,7 @@ In another terminal window:
 npx hardhat run scripts/deploy.js --network <network>
 ```
 
-To deploy on local host, use "localhost" for <network>. To deploy on Oasis Emerald Testnet, use "emerald_testnet".
+To deploy on localhost, network is "localhost". To deploy on Oasis Emerald Testnet, use "emerald_testnet".
 
 
 #### Run front-end
