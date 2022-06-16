@@ -12,9 +12,9 @@ module.exports = {
       },
       extend: {
         colors: {
-          grayBack: "#2E3237",
-          grayText: "#707174",
-          grayTitle: "#A7A9AA",
+          darkGray: "#2E3237",
+          midGray: "#707174",
+          lightGray: "#A7A9AA",
           // lightGray: "#EBECF0",
           // medGray: "#A2B1CA",
           // darkGray: "#6C7A92"

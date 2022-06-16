@@ -61,34 +61,40 @@ export default function App() {
 
   return (
         <div className="flex-col mx-auto">
-            <Router>
+            {/* <Router> */}
                     {/* TODO: add a logo here */}
-                    <div className="relative text-yellow-400 bg-black text-center text-bold mx-0 p-6 text-7xl">
+                    <div className="relative text-yellow-400 bg-darkGray text-center text-bold mx-0 p-6 text-7xl">
                         Yellow Umbrella ☂
                     </div>
 
-                    <button className="walletButton" onClick={connect}>Connect your wallet</button>
+                    <section id="mainContainer">
+                        <div className="container flex flex-col items-center px-6 mx-auto mt-10">
 
-                    <Navbar />
 
-                    {!currentAccount && (
-                        <>
-                        </>
-                    )}
+                            <div className="flex">
+                                {!currentAccount && (
+                                    <>
+                                    <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={connect}>Connect your wallet</button>
+                                    </>
+                                )}
+                            </div>
 
-                    {currentAccount && (
-                        <>
-                         <button className="walletButton" onClick={reset}>Disconnect wallet</button>
-                        </>
-                    )}
+                            {currentAccount && (
+                                <>
+                                <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={reset}>Disconnect wallet</button>
+                                </>
+                            )}
 
-                    <Routes>
-                        <Route path="/" element={<Home/>} ></Route>
-                        <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
-                        <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
-                    </Routes>
+                            {/* <Routes>
+                                <Route path="/" element={<Home/>} ></Route>
+                                <Route path="/create" element={<CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>}></Route>
+                                <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
+                            </Routes> */}
 
-            </Router>
+                        </div>
+                    </section>
+
+            {/* </Router> */}
 
         </div>
     )
