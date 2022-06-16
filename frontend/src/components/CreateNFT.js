@@ -9,15 +9,17 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
     const [file, setFile] = useState();
     const [fileHash, setFileHash] = useState("placeholderHash");
 
-
     const submit = async event => {
         event.preventDefault()
 
-        // const file_hash = ethers.utils.id('hello world') // temp code for testing
-        const new_file_hash = ethers.utils.id(file);
-
-        console.log("The file hash is ", new_file_hash)
-        setFileHash(new_file_hash)
+        var fr =new FileReader();
+        fr.onload=function(text) {
+            console.log("file contents are:", text.target.result)
+            const new_file_hash = ethers.utils.id(text.target.result);
+            console.log("The file hash is:", new_file_hash)
+            setFileHash(new_file_hash)
+        }
+        fr.readAsText(file);
 
         const formData = new FormData()
         formData.append("file", file, `${currentAccount}.txt`)
@@ -30,6 +32,8 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
     async function mintNFT() {
         const signer = provider.getSigner()
         const geneticNFTcontract = new ethers.Contract(geneticNFTAddress, GeneticNFT.abi, signer)
+
+        console.log("The current file hash is ", fileHash)
 
         const metadata = await uploadIPFS()
 
