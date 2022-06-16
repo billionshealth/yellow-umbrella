@@ -2,13 +2,22 @@ import { useEffect, useState } from 'react'
 import { Contract, ethers } from 'ethers'
 import axios from "axios"
 import { uploadIPFS } from '../helper/uploadIPFS';
-
+import P5Wrapper, { ReactP5Wrapper } from 'react-p5-wrapper';
+import sketch from '../helper/sketch';
 
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
+    const [fileHash, setFileHash] = useState("placeholderHash");
+
 
     const submit = async event => {
         event.preventDefault()
+
+        // const file_hash = ethers.utils.id('hello world') // temp code for testing
+        const new_file_hash = ethers.utils.id(file);
+
+        console.log("The file hash is ", new_file_hash)
+        setFileHash(new_file_hash)
 
         const formData = new FormData()
         formData.append("file", file, `${currentAccount}.txt`)
@@ -16,6 +25,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
     }
+    
 
     async function mintNFT() {
         const signer = provider.getSigner()
@@ -26,8 +36,10 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         console.log("metadata for NFT is:", metadata)
 
         const geneticHash = 1050
-        
-        let transaction = await geneticNFTcontract.createNFT(metadata.url, geneticHash)
+
+        const tokenURI = `https://ipfs.io/ipfs/${metadata.ipnft}/metadata.json`
+
+        let transaction = await geneticNFTcontract.createNFT(tokenURI, geneticHash)
 
         await transaction.wait()
         console.log("NFT has been minted. Transaction hash: ", transaction.hash)
@@ -42,7 +54,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         <div className="text-block">
             Select a .txt or .vcf file:
-        </div>
+        </div>  
 
         <div className="submit-block">
             <form onSubmit={submit}>
@@ -55,6 +67,10 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         </div>
 
         <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+
+        <div id="canvas">
+            <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+        </div>
     </>
   )
 }

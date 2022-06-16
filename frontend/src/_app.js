@@ -9,6 +9,7 @@ import CreateNFT from './components/CreateNFT';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 
+
 import {
     geneticNFTAddress
 } from './config'
@@ -88,6 +89,7 @@ export default function App() {
 
                 </div>
             </Router>
+
         </div>
     )
   }
