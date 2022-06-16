@@ -2,18 +2,22 @@ import { useEffect, useState } from 'react'
 import { Contract, ethers } from 'ethers'
 import axios from "axios"
 import { uploadIPFS } from '../helper/uploadIPFS';
+import P5Wrapper, { ReactP5Wrapper } from 'react-p5-wrapper';
+import sketch from '../helper/sketch';
 
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
-    const [fileHash, setFileHash] = useState(""); // TODO: update state from file hash
+    const [fileHash, setFileHash] = useState("placeholderHash");
+
 
     const submit = async event => {
         event.preventDefault()
 
         // const file_hash = ethers.utils.id('hello world') // temp code for testing
-        const file_hash = ethers.utils.id(file);
+        const new_file_hash = ethers.utils.id(file);
 
-        console.log("The file hash is ", file_hash)
+        console.log("The file hash is ", new_file_hash)
+        setFileHash(new_file_hash)
 
         const formData = new FormData()
         formData.append("file", file, `${currentAccount}.txt`)
@@ -63,6 +67,10 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         </div>
 
         <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+
+        <div id="canvas">
+            <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+        </div>
     </>
   )
 }
