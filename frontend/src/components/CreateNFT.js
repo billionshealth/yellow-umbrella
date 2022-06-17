@@ -12,7 +12,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
     const submit = async event => {
         event.preventDefault()
 
-        var fr =new FileReader();
+        var fr = new FileReader();
         fr.onload=function(text) {
             console.log("file contents are:", text.target.result)
             const new_file_hash = ethers.utils.id(text.target.result);
