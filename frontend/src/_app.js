@@ -61,47 +61,41 @@ export default function App() {
   return (
     <>
         <div className="flex-col mx-auto">
-            {/* <Router> */}
-                    {/* TODO: add a logo here */}
-                    <div className="relative text-yellow-400 bg-darkGray text-center text-bold mx-0 p-6 text-7xl">
-                        Yellow Umbrella ☂
+            {/* TODO: add a logo here */}
+            <div className="relative text-yellow-400 bg-darkGray text-center text-bold mx-0 p-6 text-7xl">
+                Yellow Umbrella ☂
+            </div>
+
+            <section id="walletButton">
+                <div className="container flex flex-col items-center px-6 mx-auto mt-10">
+                    <div className="flex pb-4">
+                        {!currentAccount && (
+                            <>
+                            <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={connect}>Connect your wallet</button>
+                            </>
+                        )}
+                        
+                        {currentAccount && (
+                        <>
+                        <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={reset}>Disconnect wallet</button>
+                        </>
+                        )}
                     </div>
-
-                    <section id="walletButton">
-                        <div className="container flex flex-col items-center px-6 mx-auto mt-10">
-
-
-                            <div className="flex pb-4">
-                                {!currentAccount && (
-                                    <>
-                                    <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={connect}>Connect your wallet</button>
-                                    </>
-                                )}
-                                {currentAccount && (
-                                <>
-                                <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={reset}>Disconnect wallet</button>
-                                </>
-                            )}
-                            </div>
-                        </div>
-                    </section>
                 </div>
+            </section>
+        </div>
 
-                <div>
-                    <section id="nftCreation">
-                        <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
-                    </section>
+        <div>
+            <section id="nftCreation">
+                <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
+            </section>
 
-                            {/* <Routes>
-                                <Route path="/" element={<Home/>} ></Route>
-                                <Route path="/create" element={<CreateNFT />}></Route>
-                                <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route>
-                            </Routes> */}
+                
+                {/* <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route> */}
 
 
-            {/* </Router> */}
 
-             </div>
-        </>
+        </div>
+    </>
     )
-  }
+}
