@@ -70,19 +70,18 @@ export default function App() {
                         <div className="container flex flex-col items-center px-6 mx-auto mt-10">
 
 
-                            <div className="flex pb-10">
+                            <div className="flex pb-4">
                                 {!currentAccount && (
                                     <>
                                     <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={connect}>Connect your wallet</button>
                                     </>
                                 )}
-                            </div>
-
-                            {currentAccount && (
+                                {currentAccount && (
                                 <>
                                 <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={reset}>Disconnect wallet</button>
                                 </>
                             )}
+                            </div>
                         </div>
                     </section>
 

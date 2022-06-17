@@ -51,29 +51,44 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
   return (
     <>
-        <div className="text-block">
-            Upload your DNA sequence to get a unique bio NFT
-        </div>
+        <section id="dataUpload">
+            <div className="container flex flex-col items-center px-6 mx-auto">
 
-        <div className="text-block">
-            Select a .txt or .vcf file:
-        </div>  
+                    <form className="flex-col items-center space-x-10" onSubmit={submit}>
+                        <input filename={file} onChange={e => setFile(e.target.files[0])} 
+                        type="file" accept=".txt" className="flex w-full text-center
+                        text-midGray pb-6
+                        file:text-lightGray file:bg-midGray
+                        file:mr-4 file:py-2 file:px-4
+                        file:rounded-full file:border-0
+                        file:hover:bg-gray-200"
+                         /> 
+                        {/* TODO: modify to accept other file types, such as VCF */}
+                        <div>
+                            <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" type="submit">Upload your DNA file</button>
+                        </div>
+                    </form>
+                 
 
-        <div className="submit-block">
-            <form onSubmit={submit}>
-                <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
-                type="file" accept=".txt"></input> 
-                {/* TODO: modify to accept other file types, such as VCF */}
+                <div className="text-block">
+                    Select a .txt or .vcf file:
+                </div>  
 
-                <button className="submitButton" type="submit">Submit genetic data</button>
-            </form>
-        </div>
 
-        <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+            </div>
+        </section>
 
-        <div id="canvas">
-            <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
-        </div>
+        <section id="mintNFT">
+            <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+        </section>
+
+        <section id="displayNFT">
+
+            <div id="canvas">
+                <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+            </div>
+        </section>
+
     </>
   )
 }
