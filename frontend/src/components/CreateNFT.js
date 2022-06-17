@@ -52,27 +52,29 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
   return (
     <>
         <section id="dataUpload">
-            <div className="container flex flex-col items-center px-6 mx-auto">
+            <div className="container flex flex-col items-center justify-center px-6 mx-auto">
 
-                    <form className="flex-col items-center space-x-10" onSubmit={submit}>
+                    <form className="ml-12 mt-6" onSubmit={submit}>
                         <input filename={file} onChange={e => setFile(e.target.files[0])} 
-                        type="file" accept=".txt" className="flex w-full text-center
+                        type="file" accept=".txt, .vcf" content="testing this"
+                        className="flex justify-center items-center
                         text-midGray pb-6
                         file:text-lightGray file:bg-midGray
                         file:mr-4 file:py-2 file:px-4
                         file:rounded-full file:border-0
                         file:hover:bg-gray-200"
                          /> 
-                        {/* TODO: modify to accept other file types, such as VCF */}
+
                         <div>
-                            <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" type="submit">Upload your DNA file</button>
+                            <button className="flex rounded-full items-center justify-center p-3
+                             px-6 ml-8 mt-3 text-lightGray bg-midGray baseline hover:bg-gray-200"
+                            type="submit">Submit DNA file</button>
                         </div>
                     </form>
                  
-
-                <div className="text-block">
-                    Select a .txt or .vcf file:
-                </div>  
+                <div className="">
+                    Need to download your DNA file?
+                </div>
 
 
             </div>

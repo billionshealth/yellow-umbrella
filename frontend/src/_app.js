@@ -59,6 +59,7 @@ export default function App() {
     }
 
   return (
+    <>
         <div className="flex-col mx-auto">
             {/* <Router> */}
                     {/* TODO: add a logo here */}
@@ -84,7 +85,9 @@ export default function App() {
                             </div>
                         </div>
                     </section>
+                </div>
 
+                <div>
                     <section id="nftCreation">
                         <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
                     </section>
@@ -98,6 +101,7 @@ export default function App() {
 
             {/* </Router> */}
 
-        </div>
+             </div>
+        </>
     )
   }
