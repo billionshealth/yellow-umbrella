@@ -8,7 +8,8 @@ import sketch from '../helper/sketch';
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
     const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
-    
+    const [fileUploaded, setFileUploaded] = useState(true);
+
     const submit = async event => {
         event.preventDefault()
 
@@ -26,6 +27,8 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
+
+        setFileUploaded(true)
     }
     
 
@@ -86,7 +89,18 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         <section id="mintNFT">
             <div className="container flex-col items-center px-6 mx-auto">
-                <img className="flex mx-auto mt-8" src="./logo512.png" alt=""/>
+                {!fileUploaded && (
+                    <>
+                    <img className="flex mx-auto mt-8" src="./logo512.png" alt=""/>
+                    </>
+                )}
+                {fileUploaded && (
+                    <div id="canvas" className="flex mx-auto mt-8">
+                        <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+                    </div>
+                )}
+
+
                 <button className="flex mx-auto mt-6 rounded-full p-3
                     px-6 text-lightGray bg-midGray hover:bg-gray-200" onClick={mintNFT}>Mint my NFT</button>
                    {/* TO DO: have it faded out before the file has been uploaded  */}
@@ -96,9 +110,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         <section id="displayNFT">
 
-            <div id="canvas">
-                <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
-            </div>
+           
         </section>
 
     </>
