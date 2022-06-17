@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-// import './App.css'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
