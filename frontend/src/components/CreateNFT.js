@@ -111,10 +111,11 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
                 )}
             </div>
 
+        {/* TODO: once user has minted an NFT, replace placeholder with their NFT */}
+
         </section>
 
         <section id="displayNFT">
-
            
         </section>
 
