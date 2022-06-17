@@ -85,7 +85,13 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         </section>
 
         <section id="mintNFT">
-            <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+            <div className="container flex-col items-center px-6 mx-auto">
+                <img className="flex mx-auto mt-8" src="./logo512.png" alt=""/>
+                <button className="flex mx-auto mt-6 rounded-full p-3
+                    px-6 text-lightGray bg-midGray hover:bg-gray-200" onClick={mintNFT}>Mint my NFT</button>
+                   {/* TO DO: have it faded out before the file has been uploaded  */}
+            </div>
+
         </section>
 
         <section id="displayNFT">
