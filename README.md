@@ -57,6 +57,7 @@ To deploy on localhost, network is "localhost". To deploy on Oasis Emerald Testn
 ```sh
 cd frontend
 npm install
+npm run build
 npm start
 ```
 
