@@ -5,8 +5,9 @@ export default function sketch(p){
     p.setup = () => {
         canvas = p.createCanvas(300, 200);
         canvas.id("nft-image")
+        // canvas.parent("nft-image-container")
         p.textFont(40);
-        canvas.hide()
+        // canvas.hide()
         p.noStroke();
     }
 

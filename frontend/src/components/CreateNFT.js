@@ -8,11 +8,12 @@ import sketch from '../helper/sketch';
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
     const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
-    
+    const [fileUploaded, setFileUploaded] = useState(false);
+
     const submit = async event => {
         event.preventDefault()
 
-        var fr =new FileReader();
+        var fr = new FileReader();
         fr.onload=function(text) {
             console.log("file contents are:", text.target.result)
             const new_file_hash = ethers.utils.id(text.target.result);
@@ -26,6 +27,8 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
+
+        setFileUploaded(true)
     }
     
 
@@ -51,29 +54,71 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
   return (
     <>
-        <div className="text-block">
-            Upload your DNA sequence to get a unique bio NFT
-        </div>
+        <section id="dataUpload">
+            <div className="container flex flex-col items-center justify-center px-6 mx-auto">
 
-        <div className="text-block">
-            Select a .txt or .vcf file:
-        </div>  
+                    <form className="mt-6" onSubmit={submit}>
+                        <input filename={file} onChange={e => setFile(e.target.files[0])} 
+                        type="file" accept=".txt, .vcf" content="testing this"
+                        className="flex justify-center items-center
+                        text-midGray ml-12
+                        file:text-lightGray file:bg-midGray
+                        file:mr-4 file:py-2 file:px-4
+                        file:rounded-full file:border-0
+                        file:hover:bg-gray-200"
+                         /> 
 
-        <div className="submit-block">
-            <form onSubmit={submit}>
-                <input className="file-upload" filename={file} onChange={e => setFile(e.target.files[0])} 
-                type="file" accept=".txt"></input> 
-                {/* TODO: modify to accept other file types, such as VCF */}
+                       <div className="flex p-6 pb-3 ml-11 text-lightGray">
+                            <em>Need to download your DNA file?</em>
+                        </div>
+                        <div className="container flex-row space-x-6 text-center text-lightGray">
+                            <a href="https://genomelink.io/download-dna/myheritage" className="hover:text-midGray">Ancestry</a>
+                            <a href="https://genomelink.io/download-dna/23andme" className="hover:text-midGray">23andMe</a>
+                            <a href="https://genomelink.io/download-dna/ancestry" className="hover:text-midGray">MyHeritage</a>
+                        </div>
 
-                <button className="submitButton" type="submit">Submit genetic data</button>
-            </form>
-        </div>
+                        <div className="ml-20 justify-content align-content">
+                            <button className="rounded-full p-3
+                             px-6 mt-9 text-lightGray bg-midGray hover:bg-gray-200"
+                            type="submit">Submit DNA file</button>
+                        </div>
+                    </form>
+                 
+            </div>
+        </section>
 
-        <button className="submitButton" onClick={mintNFT}>Mint my NFT</button>
+        <section id="mintNFT">
+            <div className="container flex-col items-center px-6 mx-auto">
+                {!fileUploaded && (
+                    <>
+                    <img className="flex mx-auto mt-8" src="./logo512.png" alt=""/>
+                    </>
+                )}
+                {fileUploaded && (
+                    <div id="canvas" className="flex mx-auto mt-8">
+                        <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+                    </div>
+                )}
 
-        <div id="canvas">
-            <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
-        </div>
+                {!fileUploaded && (
+                    <button className="flex mx-auto mt-6 rounded-full p-3
+                    px-6 text-lightGray bg-midGray hover:bg-gray-600">Mint my NFT</button>
+                )}
+
+                {fileUploaded && (
+                    <button className="flex mx-auto mt-6 rounded-full p-3
+                    px-6 text-lightGray bg-midGray hover:bg-gray-200" onClick={mintNFT}>Mint my NFT</button>
+                )}
+            </div>
+
+        {/* TODO: once user has minted an NFT, replace placeholder with their NFT */}
+
+        </section>
+
+        <section id="displayNFT">
+           
+        </section>
+
     </>
   )
 }
