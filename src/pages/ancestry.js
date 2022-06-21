@@ -29,7 +29,10 @@ const Ancestry = () => {
               <p className="inline px-3 text-sky-700">2</p>
               <p className="inline">
                 Visit the{" "}
-                <a href="https://www.ancestry.com/account/signin">
+                <a
+                  href="https://www.ancestry.com/account/signin"
+                  className="text-sky-700"
+                >
                   Ancestry DNA Setting section
                 </a>{" "}
                 (Login required). Click ”Settings” in the top-right corner.
