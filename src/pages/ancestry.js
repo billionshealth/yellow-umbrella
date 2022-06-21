@@ -82,15 +82,15 @@ const Ancestry = () => {
           <div className="flex flex-col 2xl:w-4/12 mx-auto xl:w-4/12">
             <button
               href="#"
-              className=" rounded-full m-5 p-3 sm:text-xs sm:p-2 md:p-2 md:text-md xl:text-xl xl:p-4 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
+              className=" rounded-full m-5 p-3 sm:text-xs sm:p-2 md:p-2 md:text-md xl:text-lg xl:p-3 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
             >
               GOT IT READY TO UPLOAD
             </button>
             <button
               href="https://www.ancestry.com/account/signin"
-              className=" rounded-full m-5 p-3 sm:text-xs sm:p-2 md:p-2 md:text-md xl:text-xl xl:p-4 px-6 text-lightGray bg-midGray baseline hover:bg-gray-100 hover:duration-300 border-2 border-gray-400"
+              className=" rounded-full m-5 p-3 sm:text-xs sm:p-2 md:p-2 md:text-md xl:text-lg xl:p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-100 hover:duration-300 border-2 border-gray-400"
             >
-              <Link to="/">GO TO ANCESTRY AND DOWNLOAD</Link>
+              GO TO ANCESTRY AND DOWNLOAD
             </button>
           </div>
         </div>
