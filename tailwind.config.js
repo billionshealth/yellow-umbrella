@@ -8,7 +8,19 @@ module.exports = {
       lg: { min: "1024px" },
       xl: { min: "1159px" },
     },
-    extend: {},
+    extend: {
+      colors: {
+        lime: {
+          1000: "#eafadd",
+        },
+        gray: {
+          1000: "#f1eafc",
+        },
+        pink: {
+          1000: "#fee3c8",
+        },
+      },
+    },
   },
 
   plugins: [],
