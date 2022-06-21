@@ -1,6 +1,6 @@
 const Ancestry = () => {
   return (
-    <div className="flex flex-col justify-center sm:p-0 sm:justify-start bg-lime-100 md:w-full xl:text-lg px-24 xl:px-64 ">
+    <div className="flex flex-col justify-center sm:p-0 sm:justify-start bg-lime-1000 md:w-full xl:text-lg px-24 xl:px-64 ">
       <section className="top my-10 ">
         <h1 className="text-4xl xl:text-5xl sm:text-2xl font-extrabold text-gray-800 m-10 px-2 sm:m-0">
           How to download data from Ancestry
