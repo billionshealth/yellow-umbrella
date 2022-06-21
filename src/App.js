@@ -2,7 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Ancestry from "./pages/ancestry";
-import TwentyThreeAndMe from "./pages/23andme";
+import TwentyThreeAndMe from "./pages/twentyThreeAndMe";
 import MyHeritage from "./pages/myheritage";
 import NotFound from "./pages/NotFound";
 
