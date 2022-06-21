@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const Ancestry = () => {
   return (
     <div className="flex flex-col justify-center sm:p-0 sm:justify-start bg-lime-100 px-24 md:w-full xl:text-xl">
