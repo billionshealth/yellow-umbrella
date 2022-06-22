@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar2";
 import Ancestry from "./pages/ancestry";
 import TwentyThreeAndMe from "./pages/twentyThreeAndMe";
-import MyHeritage from "./pages/myheritage";
-import NotFound from "./pages/NotFound";
+import MyHeritage from "./pages/myHeritage";
+import NotFound from "./pages/notFound";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
