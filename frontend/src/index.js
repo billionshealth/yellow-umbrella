@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./_app";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -9,8 +9,7 @@ import TwentyThreeAndMe from "./pages/twentyThreeAndMe";
 import MyHeritage from "./pages/myHeritage";
 import NotFound from "./pages/notFound";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <Router>
       <Navbar />
@@ -22,10 +21,6 @@ root.render(
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
-
-
-
-
-
