@@ -8,7 +8,11 @@ module.exports = {
         sm: '480px',
         md: '768px',
         lg: '976px',
-        xl: '1440px' 
+        xl: '1440px',
+        csm: { max: "767px" },
+        cmd: { min: "768px" },
+        clg: { min: "1024px" },
+        cxl: { min: "1159px" },
       },
       extend: {
         colors: {
