@@ -1,4 +1,4 @@
-const MyHeritage = () => {
+export default function MyHeritage() {
   return (
     <div className="flex flex-col justify-center csm:p-0 csm:justify-start bg-pink-1000 cmd:w-full cxl:text-lg px-24 cxl:px-64">
       <section className="top my-10 ">
@@ -112,6 +112,4 @@ const MyHeritage = () => {
       </section>
     </div>
   );
-};
-
-export default MyHeritage;
+}
