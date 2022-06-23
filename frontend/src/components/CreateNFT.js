@@ -4,6 +4,7 @@ import axios from "axios"
 import { uploadIPFS } from '../helper/uploadIPFS';
 import P5Wrapper, { ReactP5Wrapper } from 'react-p5-wrapper';
 import sketch from '../helper/sketch';
+import baseline from '../helper/baseline';
 
 export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
     const [file, setFile] = useState();
@@ -22,13 +23,15 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         }
         fr.readAsText(file);
 
+        setFileUploaded(true) // TODO: move this to after successful file upload, once 
+        // added appropriate error handling
+
         const formData = new FormData()
         formData.append("file", file, `${currentAccount}.txt`)
 
         const result = await axios.post('/api/images', formData, { headers: {'Content-Type': 'multipart/form-data'}})
         console.log(result.data)
 
-        setFileUploaded(true)
     }
     
 
@@ -90,9 +93,9 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         <section id="mintNFT">
             <div className="container flex-col items-center px-6 mx-auto">
                 {!fileUploaded && (
-                    <>
-                    <img className="flex mx-auto mt-8" src="./logo512.png" alt=""/>
-                    </>
+                    <div id="canvas" className="flex mx-auto mt-8">
+                        <ReactP5Wrapper sketch={baseline} hash={fileHash}></ReactP5Wrapper>
+                   </div>
                 )}
                 {fileUploaded && (
                     <div id="canvas" className="flex mx-auto mt-8">

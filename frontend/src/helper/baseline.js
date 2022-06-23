@@ -5,7 +5,7 @@ import * as p5 from "p5";
 import keyPressed from "p5";
 import mousePressed from "p5";
 
-export default function sketch(p){
+export default function baseline(p){
 
     
 
@@ -275,10 +275,10 @@ export default function sketch(p){
             // let strokeRGB = '#0f4c5c';
             strokeRGB = '#'+decimalToHex(p.int(16777000*pnum/numParticles)+1000,6);
             
-            if(pnum%10==2) strokeRGB = '#41ead4';
-            if(pnum%10==1) strokeRGB = '#ff206e';
-            if(pnum%5==1) strokeRGB = '#8338ec';
-            if(pnum%3==0) strokeRGB = '#fbff12';
+            // if(pnum%10==2) strokeRGB = '#41ead4';
+            // if(pnum%10==1) strokeRGB = '#ff206e';
+            // if(pnum%5==1) strokeRGB = '#8338ec';
+            // if(pnum%3==0) strokeRGB = '#fbff12';
 
             // p.stroke(strokeRGB + strokeA);
             // p.noStroke();
@@ -288,8 +288,8 @@ export default function sketch(p){
 
             
             particles[pnum].circleEdges(p.width/2);
-            particles[pnum].move(loopFactor);
-            particles[pnum].circleEdges(p.width/2);
+            // particles[pnum].move(loopFactor);
+            // particles[pnum].circleEdges(p.width/2);
             particles[pnum].show(p.round(loopFactor,2));
             
             // p.fill(0);
