@@ -72,9 +72,9 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
                             <em>Need to download your DNA file?</em>
                         </div>
                         <div className="container flex-row space-x-6 text-center text-lightGray">
-                            <a href="https://genomelink.io/download-dna/myheritage" className="hover:text-midGray">Ancestry</a>
-                            <a href="https://genomelink.io/download-dna/23andme" className="hover:text-midGray">23andMe</a>
-                            <a href="https://genomelink.io/download-dna/ancestry" className="hover:text-midGray">MyHeritage</a>
+                            <a href="/ancestry" className="hover:text-midGray">Ancestry</a>
+                            <a href="/23andme" className="hover:text-midGray">23andMe</a>
+                            <a href="/myheritage" className="hover:text-midGray">MyHeritage</a>
                         </div>
 
                         <div className="ml-20 justify-content align-content">
