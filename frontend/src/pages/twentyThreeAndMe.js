@@ -53,8 +53,8 @@ export default function TwentyThreeAndMe() {
             <div className="flex 2xl:ml-36  cxl:ml-20">
               <p className="inline px-3 text-sky-700">3</p>
               <p className="inline">
-                Scroll down and go to the "<b>Request your raw data download</b>
-                " section. Opt-in consent, and click "<b>Submit request</b>".
+                Scroll down to the "<b>Request your raw data download</b>
+                " section. Tick the consent box and click "<b>Submit request</b>".
               </p>
             </div>
             <img
@@ -77,13 +77,8 @@ export default function TwentyThreeAndMe() {
           <div className="m-5">
             <div className="flex 2xl:ml-36  cxl:ml-20">
               <p className="inline px-3 text-sky-700">5</p>
-              <p className="inline">Upload your file here.</p>
+              <p className="inline">Click below to return to the Yellow Umbrella home page and upload your file.</p>
             </div>
-            <img
-              className="mx-auto my-5 cmd:w-11/12 csm:w-full clg:w-7/12"
-              src={process.env.PUBLIC_URL + "images/23andMe/step5.png"}
-              alt="Upload"
-            />
           </div>
           <div className="flex flex-col  mx-auto cxl:w-5/12">
             <button

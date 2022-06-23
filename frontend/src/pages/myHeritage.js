@@ -19,7 +19,7 @@ export default function MyHeritage() {
                 <a href="https://www.myheritage.com" className="text-sky-700">
                   MyHeritage
                 </a>{" "}
-                account first.
+                account.
               </p>
             </div>
             <img
@@ -84,13 +84,8 @@ export default function MyHeritage() {
           <div className="m-5">
             <div className="flex 2xl:ml-36  cxl:ml-20">
               <p className="inline px-3 text-sky-700">6</p>
-              <p className="inline">Upload your file here.</p>
+              <p className="inline">Click below to return to the Yellow Umbrella home page and upload your file.</p>
             </div>
-            <img
-              className="mx-auto my-5 cmd:w-11/12 csm:w-full clg:w-7/12"
-              src={process.env.PUBLIC_URL + "images/myheritage/step6.png"}
-              alt="Upload"
-            />
           </div>
           <div className="flex flex-col  mx-auto cxl:w-5/12">
             <button
