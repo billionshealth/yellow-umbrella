@@ -1,4 +1,7 @@
 export default function MyHeritage() {
+
+  const closeTab = () => window.close(``, `_parent`, ``);
+
   return (
     <div className="flex flex-col justify-center csm:p-0 csm:justify-start bg-pink-1000 cmd:w-full cxl:text-lg px-24 cxl:px-64">
       <section className="top my-10 ">
@@ -96,16 +99,10 @@ export default function MyHeritage() {
           </div>
           <div className="flex flex-col  mx-auto cxl:w-5/12">
             <button
-              href="#"
-              className=" rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md cxl:text-lg cxl:p-3 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
+              onClick={closeTab}
+              className=" rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md  cxl:text-lg cxl:p-3 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
             >
-              GOT IT READY TO UPLOAD
-            </button>
-            <button
-              href="https://www.myheritage.com"
-              className="rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md cxl:text-lg cxl:p-3 px-6 text-gray-800 baseline hover:bg-gray-300 hover:duration-300 duration-300 border-2 border-gray-400"
-            >
-              GO TO MyHeritage AND DOWNLOAD
+              CLOSE TAB - READY TO UPLOAD
             </button>
           </div>
         </div>

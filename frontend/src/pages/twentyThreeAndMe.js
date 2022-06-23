@@ -1,4 +1,7 @@
 export default function TwentyThreeAndMe() {
+
+  const closeTab = () => window.close(``, `_parent`, ``);
+
   return (
     <div className="flex flex-col justify-center csm:p-0 csm:justify-start bg-gray-1000 cmd:w-full cxl:text-lg px-24 cxl:px-64">
       <section className="top my-10 ">
@@ -83,16 +86,10 @@ export default function TwentyThreeAndMe() {
           </div>
           <div className="flex flex-col  mx-auto cxl:w-5/12">
             <button
-              href="#"
-              className=" rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md cxl:text-lg cxl:p-3 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
+              onClick={closeTab}
+              className=" rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md  cxl:text-lg cxl:p-3 px-6 text-white bg-orange-400 baseline transition delay-150 ease-in-out hover:-translate-y-1 hover:scale-110 duration-300  border-2"
             >
-              GOT IT READY TO UPLOAD
-            </button>
-            <button
-              href="https://auth.23andme.com/login/"
-              className="rounded-full m-5 csm:text-xs csm:p-2 cmd:p-2 cmd:text-md cxl:text-lg cxl:p-3 px-6 text-gray-800 baseline hover:bg-gray-300 hover:duration-300 duration-300 border-2 border-gray-400"
-            >
-              GO TO 23ANDME AND DOWNLOAD
+              CLOSE TAB - READY TO UPLOAD
             </button>
           </div>
         </div>
