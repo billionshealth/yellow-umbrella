@@ -8,11 +8,6 @@ export default function MyHeritage() {
         <h1 className="text-4xl cxl:text-5xl csm:text-2xl font-extrabold text-gray-800 m-10 px-2 csm:m-0">
           How to download data from MyHeritage
         </h1>
-        <p className="px-10 w-4/5 my-2 m-auto">
-          Get 100 free trait reports based on an extensive analysis of your
-          MyHeritage raw DNA data. Learn how DNA shapes your nutrition, fitness,
-          personality and intelligence traits.
-        </p>
       </section>
       <section className="mid flex flex-col justify-center px-100">
         <div className="flex flex-col justify-center m-auto">
