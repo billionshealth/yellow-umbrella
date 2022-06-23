@@ -5,7 +5,6 @@ import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
-import Navbar from './components/Navbar';
 import Home from './components/Home';
 import './styles/main.css'
 
@@ -62,7 +61,7 @@ export default function App() {
     <>
         <div className="flex-col mx-auto">
             {/* TODO: add a logo here */}
-            <div className="relative text-yellow-400 bg-darkGray text-center text-bold mx-0 p-6 text-7xl">
+            <div className="relative w-full text-yellow-400 bg-gray-900 text-center text-bold mx-0 p-6 cxl:text-6xl cmd:text-5xl csm:text-3xl">
                 Yellow Umbrella ☂
             </div>
 
