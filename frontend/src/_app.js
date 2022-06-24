@@ -54,7 +54,7 @@ export default function App() {
 
   return (
     <>
-        <div className="flex-col mx-auto">
+        <div className="flex-col w-full csm:!w-[180%]">
             {/* TODO: add a logo here */}
             <div className="relative w-full text-yellow-400 bg-gray-900 text-center text-bold mx-0 p-6 cxl:text-6xl cmd:text-5xl csm:text-3xl">
                 Yellow Umbrella ☂
@@ -65,14 +65,28 @@ export default function App() {
                     <div className="flex pb-4">
                         {!currentAccount && (
                             <>
-                            <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={connect}>Connect your wallet</button>
+                                <button
+                                className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
+                                hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
+                                hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                onClick={connect}
+                                >
+                                Connect your wallet
+                                </button>
                             </>
                         )}
                         
                         {currentAccount && (
-                        <>
-                        <button className="flex rounded-full p-3 px-6 text-lightGray bg-midGray baseline hover:bg-gray-200" onClick={reset}>Disconnect wallet</button>
-                        </>
+                            <>
+                                <button
+                                    className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
+                                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
+                                    hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                    onClick={reset}
+                                >
+                                    Disconnect wallet
+                                </button>
+                            </>
                         )}
                     </div>
                 </div>
