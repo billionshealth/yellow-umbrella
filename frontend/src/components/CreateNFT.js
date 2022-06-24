@@ -61,102 +61,102 @@ export default function CreateNFT({
     }
 
   return (
-    <>
-        <section id="dataUpload" className="w-full">
-            <div className="container flex flex-col items-center justify-center px-6 mx-auto">
+    <div className="cmd:px-10 cmd:my-10 csm:w-[180%] ">
+        <div className="cmd:shadow-bshadow cmd:rounded-3xl p-5 ">  
+            <section id="dataUpload" className="w-full">
+                <div className="container flex flex-col items-center justify-center px-6 mx-auto">
 
-                    <form className="mt-6" onSubmit={submit}>
-                        <input filename={file} onChange={e => setFile(e.target.files[0])} 
-                        type="file" accept=".txt, .vcf"
-                        className="flex justify-center items-center
-                        rounded-full 
-                        text-ctext mx-auto
-                        hover:duration-300 shadow-btns hover:border-1 
-                        file:text-lightGray file:bg-darkGray
-                        file:mr-4 file:py-2 file:px-4
-                        file:rounded-full file:border-0
-                        file:hover:duration-300 file:shadow-btns file:hover:ease duration-300 file:hover:text-midGray
-                        file:hover:border-1 file:hover:shadow-btna file:hover:border-[#444]"
-                        /> 
+                        <form className="mt-6" onSubmit={submit}>
+                            <input filename={file} onChange={e => setFile(e.target.files[0])} 
+                            type="file" accept=".txt, .vcf"
+                            className="flex justify-center items-center
+                            rounded-full 
+                            text-ctext mx-auto
+                            hover:duration-300 shadow-btns hover:border-1 
+                            file:text-lightGray file:bg-darkGray
+                            file:mr-4 file:py-2 file:px-4
+                            file:rounded-full file:border-0
+                            file:hover:duration-300 file:shadow-btns file:hover:ease duration-300 file:hover:text-midGray
+                            file:hover:border-1 file:hover:shadow-btna file:hover:border-[#444]"
+                            /> 
 
-                        {file && (
-                        <div className="neumorphic-switch-1 mb-12">
-                            <input id="switch-1" type="checkbox" checked />
-                            <label htmlFor="switch-1"></label>
-                        </div>
-                        )}
+                            {file && (
+                            <div className="neumorphic-switch-1 mb-12">
+                                <input id="switch-1" type="checkbox" checked />
+                                <label htmlFor="switch-1"></label>
+                            </div>
+                            )}
 
-                        {!file && (
-                        <div className="neumorphic-switch">
-                            <input id="switch-1" type="checkbox" />
-                            <label htmlFor="switch-1"></label>
-                        </div>
-                        )}
+                            {!file && (
+                            <div className="neumorphic-switch">
+                                <input id="switch-1" type="checkbox" />
+                                <label htmlFor="switch-1"></label>
+                            </div>
+                            )}
 
-                       <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
-                            <em>Need to download your DNA file?</em>
-                        </div>
+                        <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
+                                <em>Need to download your DNA file?</em>
+                            </div>
 
-                        <div className="container flex-row space-x-6 mt-4 text-center text-lightGray">
-                            <a href="/ancestry" target="_blank" className="p-3 hover:text-midGray">Ancestry</a>
-                            <a href="/23andme" target="_blank" className="p-3 hover:text-midGray">23andMe</a>
-                            <a href="/myheritage" target="_blank" className="p-3 hover:text-midGray">MyHeritage</a>
-                        </div>
+                            <div className="container flex-row space-x-6 mt-4 text-center text-lightGray">
+                                <a href="/ancestry" target="_blank" className="p-3 hover:text-midGray">Ancestry</a>
+                                <a href="/23andme" target="_blank" className="p-3 hover:text-midGray">23andMe</a>
+                                <a href="/myheritage" target="_blank" className="p-3 hover:text-midGray">MyHeritage</a>
+                            </div>
 
-                        <div className="flex mx-auto justify-center align-content">
-                            <button
-                                className="rounded-full p-3
-                                px-6 mt-9 bg-darkGray baseline text-lightGray 
-                                hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
-                                hover:border-1 hover:shadow-btna hover:border-[#444]"
-                                type="submit"
-                            >
-                                Submit DNA file
-                            </button>
-                        </div>
-                    </form>
-                 
-            </div>
-        </section>
+                            <div className="flex mx-auto justify-center align-content">
+                                <button
+                                    className="rounded-full p-3
+                                    px-6 mt-9 bg-darkGray baseline text-lightGray 
+                                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                                    hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                    type="submit"
+                                >
+                                    Submit DNA file
+                                </button>
+                            </div>
+                        </form>
+                    
+                </div>
+            </section>
 
-        <section id="mintNFT" className="flex justify-center">
-            <div className="container flex-col justify-center items-center px-6 mx-auto csm:!px-[0%] min-w-full">
-                {!fileUploaded && (
-                    <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
-                    clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
-                        <ReactP5Wrapper sketch={baseline} hash={fileHash}></ReactP5Wrapper>
-                   </div>
-                )}
-                {fileUploaded && (
-                    <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
-                    clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
-                        <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+            <section id="mintNFT" className="flex justify-center">
+                <div className="container flex-col justify-center items-center px-6 mx-auto csm:!px-[0%] min-w-full">
+                    {!fileUploaded && (
+                        <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
+                        clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
+                            <ReactP5Wrapper sketch={baseline} hash={fileHash}></ReactP5Wrapper>
                     </div>
-                )}
+                    )}
+                    {fileUploaded && (
+                        <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
+                        clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
+                            <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
+                        </div>
+                    )}
 
-                {!fileUploaded && (
-                    <button className="flex mx-auto mt-6 rounded-full p-3
-                    px-6 bg-darkGray baseline text-lightGray 
-                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
-                    hover:border-1 hover:shadow-btna hover:border-[#444]"
-                    >
-                    Mint my NFT
-                    </button>
-                )}
+                    {!fileUploaded && (
+                        <button className="flex mx-auto mt-6 rounded-full p-3
+                        px-6 bg-darkGray baseline text-lightGray 
+                        hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                        hover:border-1 hover:shadow-btna hover:border-[#444]"
+                        >
+                        Mint my NFT
+                        </button>
+                    )}
 
-                {fileUploaded && (
-                    <button className="flex mx-auto mt-6 rounded-full p-3
-                    px-6 bg-darkGray baseline text-lightGray 
-                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
-                    hover:border-1 hover:shadow-btna hover:border-[#444]"
-                    onClick={mintNFT}
-                    >
-                    Mint my NFT
-                    </button>
-                )}
-            </div>
-        </section>
-
-    </>
-  )
-}
+                    {fileUploaded && (
+                        <button className="flex mx-auto mt-6 rounded-full p-3
+                        px-6 bg-darkGray baseline text-lightGray 
+                        hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                        hover:border-1 hover:shadow-btna hover:border-[#444]"
+                        onClick={mintNFT}
+                        >
+                        Mint my NFT
+                        </button>
+                    )}
+                </div>
+            </section>
+        </div>
+    </div>
+)}
