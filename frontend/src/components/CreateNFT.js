@@ -6,7 +6,12 @@ import P5Wrapper, { ReactP5Wrapper } from 'react-p5-wrapper';
 import sketch from '../helper/sketch';
 import baseline from '../helper/baseline';
 
-export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, currentAccount }) {
+export default function CreateNFT({
+    provider,
+    geneticNFTAddress,
+    GeneticNFT,
+     currentAccount
+ }) {
     const [file, setFile] = useState();
     const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
     const [fileUploaded, setFileUploaded] = useState(false);
@@ -57,20 +62,37 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
 
   return (
     <>
-        <section id="dataUpload">
+        <section id="dataUpload" className="w-full">
             <div className="container flex flex-col items-center justify-center px-6 mx-auto">
 
                     <form className="mt-6" onSubmit={submit}>
                         <input filename={file} onChange={e => setFile(e.target.files[0])} 
-                        type="file" accept=".txt, .vcf" content="testing this"
+                        type="file" accept=".txt, .vcf"
                         className="flex justify-center items-center
-                        text-midGray ml-12
-                        file:text-lightGray file:bg-midGray
+                        rounded-full 
+                        text-ctext mx-auto
+                        hover:duration-300 shadow-btns hover:border-1 
+                        file:text-lightGray file:bg-darkGray
                         file:mr-4 file:py-2 file:px-4
                         file:rounded-full file:border-0
-                        file:hover:bg-gray-200"
-                         /> 
+                        file:hover:duration-300 file:shadow-btns file:hover:ease duration-300 file:hover:text-midGray
+                        file:hover:border-1 file:hover:shadow-btna file:hover:border-[#444]"
+                        /> 
 
+                        {file && (
+                        <div className="neumorphic-switch-1 mb-12">
+                            <input id="switch-1" type="checkbox" checked />
+                            <label htmlFor="switch-1"></label>
+                        </div>
+                        )}
+
+                        {!file && (
+                        <div className="neumorphic-switch">
+                            <input id="switch-1" type="checkbox" />
+                            <label htmlFor="switch-1"></label>
+                        </div>
+                        )}
+                        
                        <div className="flex p-6 pb-3 ml-11 text-lightGray">
                             <em>Need to download your DNA file?</em>
                         </div>
