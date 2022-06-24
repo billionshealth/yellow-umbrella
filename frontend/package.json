@@ -40,8 +40,8 @@
     "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/main.css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css": "tailwindcss build -i src/styles/globals.css -o src/public/styles.css",
-    "css-watch": "tailwindcss -i ./src/styles/input.css -o ./src/styles/main.css --watch"
+    "build-css": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/main.css",
+    "build-css-watch": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/main.css --watch"
   },
   "eslintConfig": {
     "extends": [

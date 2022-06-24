@@ -1,13 +1,11 @@
-import { useEffect, useState } from "react";
-import { Contract, ethers } from "ethers";
-import Web3Modal from "web3modal";
-import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
-import NFTdisplay from "./components/NFTdisplay";
-import CreateNFT from "./components/CreateNFT";
-import Home from "./components/Home";
-import "./styles/main.css";
-
-import { geneticNFTAddress } from "./config";
+import { useEffect, useState } from 'react'
+import { Contract, ethers } from 'ethers'
+import Web3Modal from "web3modal"
+import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
+import NFTdisplay from './components/NFTdisplay';
+import CreateNFT from './components/CreateNFT';
+import { geneticNFTAddress } from './config'
+import './styles/main.css'
 
 import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
 
@@ -56,59 +54,49 @@ export default function App() {
 
   return (
     <>
-      <div className="flex-col w-full csm:!w-[180%] ">
-        {/* TODO: add a logo here */}
-        <div className="relative w-full text-yellow-400 bg-gray-900 text-center text-bold mx-0 p-6 cxl:text-6xl cmd:text-5xl csm:text-3xl">
-          Yellow Umbrella ☂
-        </div>
-
-        <section id="walletButton">
-          <div className="container flex flex-col items-center px-6 mx-auto mt-10">
-            <div className="flex pb-4">
-              {!currentAccount && (
-                <>
-                  <button
-                    className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
-                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
-                    hover:border-1 hover:shadow-btna hover:border-[#444]"
-                    onClick={connect}
-                  >
-                    Connect your wallet
-                  </button>
-                </>
-              )}
-
-              {currentAccount && (
-                <>
-                  <button
-                    className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
-                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
-                    hover:border-1 hover:shadow-btna hover:border-[#444]"
-                    onClick={reset}
-                  >
-                    Disconnect wallet
-                  </button>
-                </>
-              )}
+        <div className="flex-col w-full csm:!w-[180%]">
+            {/* TODO: add a logo here */}
+            <div className="relative w-full text-yellow-400 bg-gray-900 text-center text-bold mx-0 p-6 cxl:text-6xl cmd:text-5xl csm:text-3xl">
+                Yellow Umbrella ☂
             </div>
-          </div>
-        </section>
-      </div>
 
-      <div className="cmd:px-10 cmd:my-10 csm:w-[180%] ">
-        <div className="cmd:shadow-bshadow cmd:rounded-3xl p-5 ">
-          <section id="nftCreation">
-            <CreateNFT
-                provider={provider}
-                geneticNFTAddress={geneticNFTAddress}
-                GeneticNFT={GeneticNFT}
-                currentAccount={currentAccount}
-            />
-          </section>
-
-          {/* <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route> */}
+            <section id="walletButton">
+                <div className="container flex flex-col items-center px-6 mx-auto mt-10">
+                    <div className="flex pb-4">
+                        {!currentAccount && (
+                            <>
+                                <button
+                                className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
+                                hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
+                                hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                onClick={connect}
+                                >
+                                Connect your wallet
+                                </button>
+                            </>
+                        )}
+                        
+                        {currentAccount && (
+                            <>
+                                <button
+                                    className="flex rounded-full p-3 px-6 text-base text-lightGray bg-darkGray baseline 
+                                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray 
+                                    hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                    onClick={reset}
+                                >
+                                    Disconnect wallet
+                                </button>
+                            </>
+                        )}
+                    </div>
+                </div>
+            </section>
         </div>
-      </div>
+
+        <div>
+            <section id="nftCreation">
+                <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
+            </section>
+        </div>
     </>
-  );
-}
+)};
