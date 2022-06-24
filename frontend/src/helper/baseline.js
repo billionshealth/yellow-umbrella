@@ -180,8 +180,9 @@ export default function baseline(p){
         p.noiseSeed(noiseSeedVal);
         canvas = p.createCanvas(500, 500);
         canvas.id("nft-image")
-        canvas.parent("canvas")
+        canvas.parent("sketch-holder")
 
+        
         // canvas.style('display', 'centre');
 
 
