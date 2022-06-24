@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* .p5Canvas {
+
+} */
+
+
 body {
     background-color: #2E3237;
     font-size: 12px;
