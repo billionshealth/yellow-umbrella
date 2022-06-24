@@ -97,13 +97,6 @@ export default function App() {
             <section id="nftCreation">
                 <CreateNFT provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT} currentAccount={currentAccount}/>
             </section>
-
-                
-                {/* <Route path="/my-nfts" element={<NFTdisplay provider={provider} geneticNFTAddress={geneticNFTAddress} GeneticNFT={GeneticNFT}/>}></Route> */}
-
-
-
         </div>
     </>
-    )
-}
+)}
