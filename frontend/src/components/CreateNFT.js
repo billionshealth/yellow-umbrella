@@ -103,44 +103,58 @@ export default function CreateNFT({
                             <a href="/myheritage" target="_blank" className="p-3 hover:text-midGray">MyHeritage</a>
                         </div>
 
-                        <div className="ml-20 justify-content align-content">
-                            <button className="rounded-full p-3
-                             px-6 mt-9 text-lightGray bg-midGray hover:bg-gray-200"
-                            type="submit">Submit DNA file</button>
+                        <div className="flex mx-auto justify-center align-content">
+                            <button
+                                className="rounded-full p-3
+                                px-6 mt-9 bg-darkGray baseline text-lightGray 
+                                hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                                hover:border-1 hover:shadow-btna hover:border-[#444]"
+                                type="submit"
+                            >
+                                Submit DNA file
+                            </button>
                         </div>
                     </form>
                  
             </div>
         </section>
 
-        <section id="mintNFT">
-            <div className="container flex-col items-center px-6 mx-auto">
+        <section id="mintNFT" className="flex justify-center">
+            <div className="container flex-col justify-center items-center px-6 mx-auto csm:!px-[0%] min-w-full">
                 {!fileUploaded && (
-                    <div id="sketch-holder" className="flex mx-auto mt-8">
+                    <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
+                    clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
                         <ReactP5Wrapper sketch={baseline} hash={fileHash}></ReactP5Wrapper>
                    </div>
                 )}
                 {fileUploaded && (
-                    <div id="canvas" className="flex mx-auto mt-8">
+                    <div id="canvas" className="flex mx-auto mt-8 csm:px-[9%] csm:!mx-0 cmd:px-[6.5%] 
+                    clg:px-[19.5%] cxl:px-[30%] cxxl:px-[35%]">
                         <ReactP5Wrapper sketch={sketch} hash={fileHash}></ReactP5Wrapper>
                     </div>
                 )}
 
                 {!fileUploaded && (
                     <button className="flex mx-auto mt-6 rounded-full p-3
-                    px-6 text-lightGray bg-midGray hover:bg-gray-600">Mint my NFT</button>
+                    px-6 bg-darkGray baseline text-lightGray 
+                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                    hover:border-1 hover:shadow-btna hover:border-[#444]"
+                    >
+                    Mint my NFT
+                    </button>
                 )}
 
                 {fileUploaded && (
                     <button className="flex mx-auto mt-6 rounded-full p-3
-                    px-6 text-lightGray bg-midGray hover:bg-gray-200" onClick={mintNFT}>Mint my NFT</button>
+                    px-6 bg-darkGray baseline text-lightGray 
+                    hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                    hover:border-1 hover:shadow-btna hover:border-[#444]"
+                    onClick={mintNFT}
+                    >
+                    Mint my NFT
+                    </button>
                 )}
             </div>
-
-        </section>
-
-        <section id="displayNFT">
-           
         </section>
 
     </>
