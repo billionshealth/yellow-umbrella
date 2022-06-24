@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./styles/main.css";
 import App from "./_app";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Ancestry from "./pages/ancestry";

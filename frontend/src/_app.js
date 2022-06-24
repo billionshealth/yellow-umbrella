@@ -2,15 +2,10 @@ import { useEffect, useState } from 'react'
 import { Contract, ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import CoinbaseWalletSDK from '@coinbase/wallet-sdk';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import NFTdisplay from './components/NFTdisplay';
 import CreateNFT from './components/CreateNFT';
-import Home from './components/Home';
+import { geneticNFTAddress } from './config'
 import './styles/main.css'
-
-import {
-    geneticNFTAddress
-} from './config'
 
 import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
 
