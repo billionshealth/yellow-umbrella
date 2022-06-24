@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --lgrad: #d43c0b;
+  --rgrad: ##bf8a10;
+  --test: #ddd;
+}
+
+@layer components {
+  /*Common Attributes of Switches */
+  .neumorphic-switch input,
+  .neumorphic-switch-1 input {
+    @apply hidden;
+  }
+
+  /* Switch */
+
+  .neumorphic-switch label {
+    @apply flex items-center h-6 mt-10 mx-auto w-3/12 relative rounded-full 
+    bg-darkGray 
+    hover:duration-300 shadow-btns duration-300   
+    hover:shadow-btna hover:border-[#444];
+  }
+
+  .neumorphic-switch label::before {
+    content: "";
+    @apply h-full w-full opacity-0 hover:duration-300 shadow-btns duration-300   
+      hover:shadow-btnpa hover:border-[#444];
+    border-radius: inherit;
+  }
+
+  .neumorphic-switch label::after {
+    @apply h-5 absolute w-5 left-1.5 bg-midGray;
+    content: "";
+    border-radius: 50%;
+  }
+
+  /* Switch-1 */
+
+  .neumorphic-switch-1 label {
+    @apply flex items-center h-6 mt-10 mx-auto w-3/12 relative rounded-full 
+    duration-300   
+    hover:duration-300 
+    shadow-btns 
+    hover:shadow-btnpa  
+    bg-gradient-to-r from-lgrad to-rgrad
+    hover:border-[#444];
+  }
+
+  .neumorphic-switch-1 label::after {
+    @apply h-5 absolute w-5 bg-[#E0E0E0];
+    content: "";
+    border-radius: 50%;
+    left: 57%;
+  }
+}
