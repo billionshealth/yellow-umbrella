@@ -9,7 +9,7 @@ import "./styles/main.css";
 
 import { geneticNFTAddress } from "./config";
 
-// import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
+import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
 
 export default function App() {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -99,10 +99,10 @@ export default function App() {
         <div className="cmd:shadow-bshadow cmd:rounded-3xl p-5 ">
           <section id="nftCreation">
             <CreateNFT
-              provider={provider}
-              geneticNFTAddress={geneticNFTAddress}
-              //   GeneticNFT={GeneticNFT}
-              currentAccount={currentAccount}
+                provider={provider}
+                geneticNFTAddress={geneticNFTAddress}
+                GeneticNFT={GeneticNFT}
+                currentAccount={currentAccount}
             />
           </section>
 
