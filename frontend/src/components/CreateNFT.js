@@ -82,7 +82,7 @@ export default function CreateNFT({
 
                             {file && (
                             <div className="neumorphic-switch-1 mb-12">
-                                <input id="switch-1" type="checkbox" checked />
+                                <input id="switch-1" type="checkbox" checked readOnly />
                                 <label htmlFor="switch-1"></label>
                             </div>
                             )}
