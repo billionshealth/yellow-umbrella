@@ -92,14 +92,15 @@ export default function CreateNFT({
                             <label htmlFor="switch-1"></label>
                         </div>
                         )}
-                        
-                       <div className="flex p-6 pb-3 ml-11 text-lightGray">
+
+                       <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
                             <em>Need to download your DNA file?</em>
                         </div>
-                        <div className="container flex-row space-x-6 text-center text-lightGray">
-                            <a href="/ancestry" target="_blank" className="hover:text-midGray">Ancestry</a>
-                            <a href="/23andme" target="_blank" className="hover:text-midGray">23andMe</a>
-                            <a href="/myheritage" target="_blank" className="hover:text-midGray">MyHeritage</a>
+
+                        <div className="container flex-row space-x-6 mt-4 text-center text-lightGray">
+                            <a href="/ancestry" target="_blank" className="p-3 hover:text-midGray">Ancestry</a>
+                            <a href="/23andme" target="_blank" className="p-3 hover:text-midGray">23andMe</a>
+                            <a href="/myheritage" target="_blank" className="p-3 hover:text-midGray">MyHeritage</a>
                         </div>
 
                         <div className="ml-20 justify-content align-content">
