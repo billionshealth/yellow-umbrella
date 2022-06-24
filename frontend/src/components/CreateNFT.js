@@ -93,7 +93,7 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
         <section id="mintNFT">
             <div className="container flex-col items-center px-6 mx-auto">
                 {!fileUploaded && (
-                    <div id="canvas" className="flex mx-auto mt-8">
+                    <div id="sketch-holder" className="flex mx-auto mt-8">
                         <ReactP5Wrapper sketch={baseline} hash={fileHash}></ReactP5Wrapper>
                    </div>
                 )}
@@ -113,8 +113,6 @@ export default function CreateNFT({ provider, geneticNFTAddress, GeneticNFT, cur
                     px-6 text-lightGray bg-midGray hover:bg-gray-200" onClick={mintNFT}>Mint my NFT</button>
                 )}
             </div>
-
-        {/* TODO: once user has minted an NFT, replace placeholder with their NFT */}
 
         </section>
 
