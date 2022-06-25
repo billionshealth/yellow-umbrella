@@ -41,6 +41,7 @@
     "build-react": "react-scripts build",
     "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
     "deploy:oasis": "npx hardhat run scripts/deploy.js --network emerald_testnet",
+    "deploy:polygon": "npx hardhat run scripts/deploy.js --network polygon_mumbai",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "build-css-watch": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/main.css --watch"
