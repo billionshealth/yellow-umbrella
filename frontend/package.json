@@ -36,11 +36,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "dev": "",
-    "build": "tailwindcss -i ./src/styles/input.css -o ./src/styles/main.css && react-scripts build",
+    "build-css": "tailwindcss -i ./src/styles/input.css -o ./src/styles/main.css",
+    "compile": "npx hardhat compile",
+    "build-react": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-css": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/main.css",
     "build-css-watch": "tailwindcss build -i ./src/styles/input.css -o ./src/styles/main.css --watch"
   },
   "eslintConfig": {
