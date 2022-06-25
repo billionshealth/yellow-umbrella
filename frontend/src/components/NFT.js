@@ -184,9 +184,7 @@ export default function NFT({
             {!fileUploaded && (
               <button
                 className="flex mx-auto mt-6 rounded-full p-3
-                        px-6 bg-darkGray baseline text-lightGray 
-                        hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
-                        hover:border-1 hover:shadow-btna hover:border-[#444]"
+                        px-6 bg-darkGray baseline text-lightGray shadow-btns"
               >
                 Mint my NFT
               </button>
