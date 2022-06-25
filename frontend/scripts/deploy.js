@@ -1,8 +1,3 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// When running the script with `npx hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
 const hre = require("hardhat");
 const fs = require('fs');
 
@@ -12,10 +7,13 @@ async function main() {
   const geneticNFT = await GeneticNFT.deploy();
   await geneticNFT.deployed();
   console.log("genetic NFT contract deployed to:", geneticNFT.address);
-  fs.writeFileSync('./src/config.js', `
-  export const geneticNFTAddress = "${geneticNFT.address}"
-  `)
-
+ 
+  // Write deployment address to config.js file
+  // fs.writeFileSync('./src/config.js', `
+  // export const geneticNFTAddress = "${geneticNFT.address}"
+  // `, {
+  //   flag: 'a'
+  // })
 }
 
 main()

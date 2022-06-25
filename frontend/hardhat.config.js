@@ -42,6 +42,14 @@ module.exports = {
           ? [process.env.PRIVATE_KEY_OASIS]
           : [],
     },
+    polygon_mumbai: {
+      url: 'https://rpc-mumbai.maticvigil.com/',
+      chainId: 80001,
+      accounts:
+        process.env.PRIVATE_KEY_POLYGON !== undefined
+        ? [process.env.PRIVATE_KEY_POLYGON]
+        : [],
+    }
   },
   paths: {
     artifacts: './src/artifacts',
