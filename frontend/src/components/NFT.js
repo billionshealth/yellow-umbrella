@@ -128,6 +128,12 @@ export default function NFT({
                 </a>
               </div>
 
+              <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
+                Your DNA sequence will be hashed to generate your unique NFT. Your DNA data never leaves the browser and will not be stored.
+              </div>
+
+
+              {file && (
               <div className="flex mx-auto justify-center align-content">
                 <button
                   className="rounded-full p-3
@@ -136,10 +142,23 @@ export default function NFT({
                                     hover:border-1 hover:shadow-btna hover:border-[#444]"
                   type="submit"
                 >
-                  Submit DNA file
+                  Hash your DNA sequence
                 </button>
               </div>
+              )}
+
+              {!file && (
+              <div className="flex mx-auto justify-center align-content">
+                <button
+                  className="rounded-full p-3 px-6 mt-9 bg-darkGray baseline text-lightGray shadow-btns"
+                >
+                  Hash your DNA sequence
+                </button>
+              </div>
+              )}
             </form>
+
+            
           </div>
         </section>
 
