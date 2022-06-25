@@ -4,6 +4,8 @@ import Web3Modal from "web3modal";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import NFT from "./components/NFT";
 import { geneticNFTAddress } from "./config";
+import UAuthSPA from '@uauth/js'
+import * as UAuthWeb3Modal from '@uauth/web3modal'
 import "./styles/main.css";
 
 import GeneticNFT from './artifacts/contracts/GeneNFTFactory.sol/GeneticNFTFactory.json'
@@ -25,11 +27,25 @@ export default function App() {
     },
   };
 
+  const uauthOptions = {
+    clientID: "6fa9361b-69ad-4fce-8ee0-97b25b5e57fe",
+    redirectUri: "http://localhost:3000/",
+    scope: 'openid wallet',
+  }
+
+  providerOptions['custom-uauth'] = {
+    display: UAuthWeb3Modal.display,
+    connector: UAuthWeb3Modal.connector,
+    package: UAuthSPA,
+    options: uauthOptions,
+  }
+
   const web3Modal = new Web3Modal({
     network: "mainnet",
     cacheProvider: false,
     providerOptions,
   });
+
 
   async function connect() {
     const web3Provider = await web3Modal.connect();
