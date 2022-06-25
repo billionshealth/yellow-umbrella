@@ -6,7 +6,7 @@ import P5Wrapper, { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from "../helper/sketch";
 import baseline from "../helper/baseline";
 
-export default function CreateNFT({
+export default function NFT({
   provider,
   geneticNFTAddress,
   GeneticNFT,
@@ -28,16 +28,17 @@ export default function CreateNFT({
     };
     fr.readAsText(file);
 
+    // FILE UPLOAD - TEMPORARILY COMMENTED
+    // const formData = new FormData();
+    // formData.append("file", file, `${currentAccount}.txt`);
+
+    // const result = await axios.post("/api/images", formData, {
+    //   headers: { "Content-Type": "multipart/form-data" },
+    // });
+    // console.log(result.data);
+
     setFileUploaded(true); // TODO: move this to after successful file upload, once
     // added appropriate error handling
-
-    const formData = new FormData();
-    formData.append("file", file, `${currentAccount}.txt`);
-
-    const result = await axios.post("/api/images", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
-    console.log(result.data);
   };
 
   async function mintNFT() {

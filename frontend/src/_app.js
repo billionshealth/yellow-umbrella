@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { Contract, ethers } from "ethers";
 import Web3Modal from "web3modal";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
-import NFTdisplay from "./components/NFTdisplay";
-import CreateNFT from "./components/CreateNFT";
+import NFT from "./components/NFT";
 import { geneticNFTAddress } from "./config";
 import "./styles/main.css";
 
@@ -95,7 +94,7 @@ export default function App() {
 
       <div>
         <section id="nftCreation">
-          <CreateNFT
+          <NFT
             provider={provider}
             geneticNFTAddress={geneticNFTAddress}
             GeneticNFT={GeneticNFT}
