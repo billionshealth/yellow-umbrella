@@ -5,6 +5,8 @@ import { uploadIPFS } from "../helper/uploadIPFS";
 import P5Wrapper, { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from "../helper/sketch";
 import baseline from "../helper/baseline";
+import { ProgressBar } from 'primereact/progressbar';
+
 
 export default function NFT({
   provider,
@@ -15,6 +17,7 @@ export default function NFT({
   const [file, setFile] = useState();
   const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [awaitingMinting, setAwaitingMinting] = useState(false);
 
   const submit = async (event) => {
     event.preventDefault();
@@ -49,6 +52,8 @@ export default function NFT({
       signer
     );
 
+    setAwaitingMinting(true);
+
     console.log("The current file hash is ", fileHash);
     console.log("Uploading to IPFS now... Time taken can vary.");
 
@@ -62,6 +67,7 @@ export default function NFT({
 
     await transaction.wait();
     console.log("NFT has been minted. Transaction hash: ", transaction.hash);
+    setAwaitingMinting(false);
   }
 
   return (
@@ -179,6 +185,13 @@ export default function NFT({
                   hash={fileHash}
                 ></ReactP5Wrapper>
               </div>
+            )}
+
+            {awaitingMinting && (
+               <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
+                NFT minting in progress...
+               </div>
+
             )}
 
             {!fileUploaded && (
