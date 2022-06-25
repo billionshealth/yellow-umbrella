@@ -3,7 +3,7 @@ import { Contract, ethers } from "ethers";
 import Web3Modal from "web3modal";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import NFT from "./components/NFT";
-import { geneticNFTAddress } from "./config";
+import { selectedNetwork, geneticNFTAddress } from "./config";
 import UAuthSPA from '@uauth/js'
 import * as UAuthWeb3Modal from '@uauth/web3modal'
 import "./styles/main.css";
@@ -29,7 +29,7 @@ export default function App() {
 
   const uauthOptions = {
     clientID: "6fa9361b-69ad-4fce-8ee0-97b25b5e57fe",
-    redirectUri: "http://localhost:3000/",
+    redirectUri: "http://localhost:3000/", // TODO: update to the deployment website URI
     scope: 'openid wallet',
   }
 
@@ -66,6 +66,16 @@ export default function App() {
     setCurrentAccount("");
     web3Modal.clearCachedProvider();
   }
+
+  // useEffect(() => {
+  //   if (provider?._network?.chainId === selectedNetwork) {
+  //     console.log("Connected to chainID ", provider?._network?.chainId)
+  //   } else {
+  //     window.alert(`Please check that you're connected to the correct chain (Chain ID ${selectedNetwork}).`)
+  //   }
+  // }, [provider])
+
+
 
   return (
     <>
