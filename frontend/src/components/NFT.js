@@ -17,7 +17,10 @@ export default function NFT({
   const [file, setFile] = useState();
   const [fileHash, setFileHash] = useState(ethers.utils.id("placeholderHash"));
   const [fileUploaded, setFileUploaded] = useState(false);
+  const [nftLocation, setNftLocation] = useState("");
   const [awaitingMinting, setAwaitingMinting] = useState(false);
+  const [mintingFinished, setMintingFinished] = useState(false);
+
 
   const submit = async (event) => {
     event.preventDefault();
@@ -62,12 +65,14 @@ export default function NFT({
     console.log("metadata for NFT is:", metadata);
 
     const tokenURI = `https://ipfs.io/ipfs/${metadata.ipnft}/metadata.json`;
+    setNftLocation(tokenURI)
 
     let transaction = await geneticNFTcontract.createNFT(tokenURI, fileHash);
 
     await transaction.wait();
     console.log("NFT has been minted. Transaction hash: ", transaction.hash);
     setAwaitingMinting(false);
+    setMintingFinished(true);
   }
 
   return (
@@ -148,7 +153,7 @@ export default function NFT({
                                     hover:border-1 hover:shadow-btna hover:border-[#444]"
                   type="submit"
                 >
-                  Hash your DNA sequence
+                  Hash my DNA sequence
                 </button>
               </div>
               )}
@@ -158,7 +163,7 @@ export default function NFT({
                 <button
                   className="rounded-full p-3 px-6 mt-9 bg-darkGray baseline text-lightGray shadow-btns"
                 >
-                  Hash your DNA sequence
+                  Hash my DNA sequence
                 </button>
               </div>
               )}
@@ -189,7 +194,7 @@ export default function NFT({
 
             {awaitingMinting && (
                <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
-                NFT minting in progress...
+                  NFT minting in progress... (may take a few minutes).
                </div>
 
             )}
@@ -214,6 +219,16 @@ export default function NFT({
                 Mint my NFT
               </button>
             )}
+
+            {mintingFinished && (
+              <>
+                <div className="flex pt-10 pb-2 mx-auto text-center justify-center items-center text-lightGray w-full">
+                  Minting complete! View your NFT metadata on IPFS:{" "}
+                </div>
+                <a href={nftLocation} className="rounded-full p-3 px-6 mt-6 bg-darkGray baseline text-lightGray shadow-btns">View NFT metadata</a>
+                </>
+            )}
+
           </div>
         </section>
       </div>
