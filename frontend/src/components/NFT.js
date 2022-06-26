@@ -194,8 +194,8 @@ export default function NFT({
             )}
 
             {awaitingMinting && (
-               <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
-                  NFT minting in progress... may take a few minutes.<br/>
+               <div className="flex pt-10 pb-2 mx-auto justify-center text-center text-lightGray w-full">
+                  NFT minting in progress... may take a few minutes.<br/><br/>
                   (Must await IPFS upload - see browser console for status)
                </div>
 
