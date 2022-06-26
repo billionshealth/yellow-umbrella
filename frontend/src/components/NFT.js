@@ -5,7 +5,6 @@ import { uploadIPFS } from "../helper/uploadIPFS";
 import P5Wrapper, { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from "../helper/sketch";
 import baseline from "../helper/baseline";
-import { ProgressBar } from 'primereact/progressbar';
 
 
 export default function NFT({
@@ -20,6 +19,7 @@ export default function NFT({
   const [nftLocation, setNftLocation] = useState("");
   const [awaitingMinting, setAwaitingMinting] = useState(false);
   const [mintingFinished, setMintingFinished] = useState(false);
+  const [transactionId, setTransactionId] = useState("");
 
 
   const submit = async (event) => {
@@ -71,6 +71,7 @@ export default function NFT({
 
     await transaction.wait();
     console.log("NFT has been minted. Transaction hash: ", transaction.hash);
+    setTransactionId(transaction.hash);
     setAwaitingMinting(false);
     setMintingFinished(true);
   }
@@ -226,9 +227,13 @@ export default function NFT({
                   Minting complete! View your NFT metadata on IPFS:{" "}
                 </div>
                 <a href={nftLocation} className="rounded-full p-3 px-6 mt-6 bg-darkGray baseline text-lightGray shadow-btns">View NFT metadata</a>
-                </>
+                
+                <div className="flex pt-10 pb-2 mx-auto text-center justify-center items-center text-lightGray w-full">
+                  View the transaction on the block explorer:
+                </div>
+                <a href={`https://testnet.explorer.emerald.oasis.dev/tx/${transactionId}`} className="rounded-full p-3 px-6 mt-6 bg-darkGray baseline text-lightGray shadow-btns">View transaction</a>
+              </>
             )}
-
           </div>
         </section>
       </div>
