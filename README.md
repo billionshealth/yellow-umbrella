@@ -1,8 +1,8 @@
 # Yellow Umbrella
 
-Yellow Umbrella is a game where players upload their genetic sequence and mint a unique NFT, based on the sequence. Players can recombine their NFT with that of other players to generate new NFTs with different traits. Additionally, they can use the platform to discover more about their health.
+Yellow umbrella is a generate NFT game based on DNA exploration.
 
-It is the first of a series of games that Billions Health is building to encourage people to create and engage with their health-related data.
+Players use their genetic sequence to mint a unique NFT. Players can recombine their NFT with that of other players to generate new NFTs with different traits. Additionally, they can use the platform to discover more about their health.
 
 
 ## Table of Contents
@@ -30,14 +30,6 @@ cd yellow-umbrella
 ```
 
 
-#### Run back-end
-```sh
-cd backend
-npm install
-npm start
-```
-
-
 #### Deploy contracts
 From within the frontend folder, in one terminal window:
 ```sh
@@ -57,8 +49,9 @@ To deploy on localhost, network is "localhost". To deploy on Oasis Emerald Testn
 ```sh
 cd frontend
 npm install
-npm run build
-npm start
+npm run build-css
+npm run compile
+npm run start
 ```
 
 
@@ -80,8 +73,5 @@ The current working template for the front-facing web app is the following:
 
 ## Next steps
 
-1. Write smart contracts for minting NFTs on Oasis
-2. Add front-end page to include ability to (1) request NFT minting, (2) see current minted NFTs and (3) request to recombine NFT with other players (based on their wallet address).
-3. Ensure generalisability to different genetic data file types and sources
-4. Turn genetic upload and analysis pipeline into a modular, re-usable comnponent for other health-related games
-
+1. Add functionality for recombining NFTs with others
+2. Increase health-related information made available via the DApp
