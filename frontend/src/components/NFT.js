@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Contract, ethers } from "ethers";
 import axios from "axios";
 import { uploadIPFS } from "../helper/uploadIPFS";
-import P5Wrapper, { ReactP5Wrapper } from "react-p5-wrapper";
+import { ReactP5Wrapper } from "react-p5-wrapper";
 import sketch from "../helper/sketch";
 import baseline from "../helper/baseline";
 
