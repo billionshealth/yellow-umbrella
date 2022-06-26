@@ -226,12 +226,24 @@ export default function NFT({
                 <div className="flex pt-10 pb-2 mx-auto text-center justify-center items-center text-lightGray w-full">
                   Minting complete! View your NFT metadata on IPFS:{" "}
                 </div>
-                <a href={nftLocation} className="rounded-full p-3 px-6 mt-6 bg-darkGray baseline text-lightGray shadow-btns">View NFT metadata</a>
-                
+                  <a href={nftLocation} className="flex mx-auto mt-6 rounded-full p-3
+                      px-6 bg-darkGray baseline text-lightGray 
+                      hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                      hover:border-1 hover:shadow-btna hover:border-[#444]"
+                      >
+                      View NFT metadata
+                  </a>
+              
                 <div className="flex pt-10 pb-2 mx-auto text-center justify-center items-center text-lightGray w-full">
                   View the transaction on the block explorer:
                 </div>
-                <a href={`https://testnet.explorer.emerald.oasis.dev/tx/${transactionId}`} className="rounded-full p-3 px-6 mt-6 bg-darkGray baseline text-lightGray shadow-btns">View transaction</a>
+                  <a href={`https://testnet.explorer.emerald.oasis.dev/tx/${transactionId}`} className="flex mx-auto mt-6 rounded-full p-3
+                      px-6 bg-darkGray baseline text-lightGray 
+                      hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
+                      hover:border-1 hover:shadow-btna hover:border-[#444]"
+                      >
+                      View transaction
+                  </a>
               </>
             )}
           </div>
