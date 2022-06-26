@@ -68,7 +68,7 @@ sam deploy
 ## Frontend
 
 The current working template for the front-facing web app is the following:
-![](Screenshot.png)
+![](Screenshot2.png)
 
 
 ## Next steps
