@@ -141,7 +141,7 @@ export default function NFT({
               </div>
 
               <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
-                Your DNA sequence will be hashed to generate your unique NFT. Your DNA data never leaves the browser and will not be stored.
+                Your DNA sequence will be hashed to generate your unique NFT. Your DNA data never leaves your device and will not be stored.
               </div>
 
 
