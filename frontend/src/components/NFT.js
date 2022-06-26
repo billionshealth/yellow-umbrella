@@ -195,7 +195,8 @@ export default function NFT({
 
             {awaitingMinting && (
                <div className="flex pt-10 pb-2 mx-auto justify-center text-lightGray w-full">
-                  NFT minting in progress... (may take a few minutes).
+                  NFT minting in progress... may take a few minutes.<br/>
+                  (Must await IPFS upload - see browser console for status)
                </div>
 
             )}
@@ -237,7 +238,10 @@ export default function NFT({
                 <div className="flex pt-10 pb-2 mx-auto text-center justify-center items-center text-lightGray w-full">
                   View the transaction on the block explorer:
                 </div>
-                  <a href={`https://testnet.explorer.emerald.oasis.dev/tx/${transactionId}`} className="flex mx-auto mt-6 rounded-full p-3
+
+                <a href={`https://mumbai.polygonscan.com/tx/${transactionId}`} 
+                // <a href={`https://testnet.explorer.emerald.oasis.dev/tx/${transactionId}`} 
+                      className="flex mx-auto mt-6 rounded-full p-3
                       px-6 bg-darkGray baseline text-lightGray 
                       hover:duration-300 shadow-btns hover:ease duration-300 hover:text-midGray  
                       hover:border-1 hover:shadow-btna hover:border-[#444]"
