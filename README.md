@@ -7,19 +7,9 @@ Players use their genetic sequence to mint a unique NFT. Players can recombine t
 
 ## Table of Contents
 
-- [About](#about)
 - [Install](#install)
 - [Frontend](#frontend)
 - [Next Steps](#next-steps)
-
-
-## About
-
-Billions Health are building a play2health gaming platform to bring the world's health data into one composable protocol.
-
-The game play dynamics of Yellow Umbrella are described in more detail in [this slideshow presentation](https://docs.google.com/presentation/d/e/2PACX-1vQCfvrXzmRl_S6mZuYX0GJFXwi1IvxH_6aHzyIGn9khcwnyjly6KjLxw-Sivpt8YTUlbLv8s8AtemJb/pub?start=false&loop=false&delayms=3000) and [this accompanying presentation](https://www.youtube.com/watch?v=u8lxFdalQSs&t=26m30s).
-
-The current backend logic is that (1) a player's genetic data file is renamed based on their wallet address, (2) the file is uploaded to an encrypted Amazon S3 bucket, (3) this file upload triggers an AWS Lambda function to calculate a genetic similarity score, (4) this is fed back to the backend, which then initiates the minting of an NFT based on the characteristics.
 
 
 ## Install
