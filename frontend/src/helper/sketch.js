@@ -1,9 +1,9 @@
 //TODO: clean up previous iterations of the code and modulerise hash components
 
-import { rejects } from "assert";
+// import { rejects } from "assert";
 import * as p5 from "p5";
-import keyPressed from "p5";
-import mousePressed from "p5";
+// import keyPressed from "p5";
+// import mousePressed from "p5";
 
 export default function sketch(p){
 
